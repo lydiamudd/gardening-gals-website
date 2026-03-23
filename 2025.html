@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2025 Garden Map</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-icon">🌱</div>
+      <h1>Our Garden</h1>
+      <p class="subtitle">A record of what we've grown, year by year</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="2026.html">2026</a></li>
+      <li><a href="2025.html">2025</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1 class="page-title">🌿 2025 Garden Map</h1>
+    <p class="page-subtitle">Lower-level and upper-level beds</p>
+
+    <div class="view-toggle">
+      <button class="toggle-btn active" onclick="toggleView('map')">Map View</button>
+      <button class="toggle-btn" onclick="toggleView('list')">List View</button>
+    </div>
+
+    <!-- MAP VIEW -->
+    <div id="map-view">
+
+      <h2 class="section-heading">Lower-Level Garden</h2>
+      <div class="map-grid map-grid-lower">
+
+        <div class="bed-card highlight">
+          <div class="bed-label">Root Bed</div>
+          <div class="bed-name">Root Vegetables</div>
+          <div class="plant-list">Carrots (fall), Beets (spring), Parsnips (spring)</div>
+        </div>
+
+        <div class="bed-card highlight">
+          <div class="bed-label">Tomato / Pepper Bed</div>
+          <div class="bed-name">Tomatoes & Peppers</div>
+          <div class="plant-list">Tomatoes (May), Peppers (May)</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Greens Bed</div>
+          <div class="bed-name">Greens & Herbs</div>
+          <div class="plant-list">Cilantro, Kale, Chard, Basil (May), Parsley, Arugula, Tatsoi (July), Spinach Mustard, Shallots, Leeks</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Radish / Turnip Bed</div>
+          <div class="bed-name">Root Veg & Flowers</div>
+          <div class="plant-list">Radish (spring), Turnip (spring), Flowers</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Garlic Bed</div>
+          <div class="bed-name">Garlic & Cucumbers</div>
+          <div class="plant-list">Garlic (fall), Cucumbers (May)</div>
+        </div>
+
+        <div class="bed-card highlight">
+          <div class="bed-label">Tomato Bed 2</div>
+          <div class="bed-name">Tomatoes</div>
+          <div class="plant-list">Tomatoes (May)</div>
+        </div>
+
+        <div class="bed-card flower">
+          <div class="bed-label">Zinnia Bed</div>
+          <div class="bed-name">Flowers (All Year)</div>
+          <div class="plant-list">Zinnia (all year)</div>
+        </div>
+
+        <div class="bed-card flower">
+          <div class="bed-label">Dahlia Bed</div>
+          <div class="bed-name">Flowers</div>
+          <div class="plant-list">Dahlia, Calendula, Statice, Strawflower</div>
+        </div>
+
+      </div>
+
+      <h2 class="section-heading">Upper-Level Garden</h2>
+      <div class="map-grid map-grid-upper">
+
+        <div class="bed-card flower">
+          <div class="bed-label">Strawberry Bed</div>
+          <div class="bed-name">Strawberries</div>
+          <div class="plant-list">Strawberries</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Apple Terrace Bed</div>
+          <div class="bed-name">Vegetables (4 Quadrants)</div>
+          <div class="plant-list">
+            <strong>Q1:</strong> Snow Peas (spring) → Winter Squash (May)<br>
+            <strong>Q2:</strong> Lettuce (spring) → Bush Beans (May)<br>
+            <strong>Q3:</strong> Snap Peas (spring) → Zucchini (May)<br>
+            <strong>Q4:</strong> Bush Beans
+          </div>
+        </div>
+
+        <div class="bed-card flower">
+          <div class="bed-label">Asparagus Bed</div>
+          <div class="bed-name">Flowers</div>
+          <div class="plant-list">Lisianthus</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LIST VIEW -->
+    <div id="list-view" style="display:none;" class="list-view">
+
+      <h2 class="section-heading">Lower-Level Garden</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Bed</th>
+            <th>Plants</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Root Bed</td><td>Carrots (fall), Beets (spring), Parsnips (spring)</td></tr>
+          <tr><td>Tomato / Pepper Bed</td><td>Tomatoes (May), Peppers (May)</td></tr>
+          <tr><td>Greens Bed</td><td>Cilantro, Kale, Chard, Basil (May), Parsley, Arugula, Tatsoi (July), Spinach Mustard, Shallots, Leeks</td></tr>
+          <tr><td>Radish / Turnip Bed</td><td>Radish (spring), Turnip (spring), Flowers</td></tr>
+          <tr><td>Garlic Bed</td><td>Garlic (fall), Cucumbers (May)</td></tr>
+          <tr><td>Tomato Bed 2</td><td>Tomatoes (May)</td></tr>
+          <tr><td>Zinnia Bed</td><td>Zinnia (all year)</td></tr>
+          <tr><td>Dahlia Bed</td><td>Dahlia, Calendula, Statice, Strawflower</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-heading">Upper-Level Garden</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Bed</th>
+            <th>Plants</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Strawberry Bed</td><td>Strawberries</td></tr>
+          <tr><td>Apple Terrace Bed – Q1</td><td>Snow Peas (spring), Winter Squash (May)</td></tr>
+          <tr><td>Apple Terrace Bed – Q2</td><td>Lettuce (spring), Bush Beans (May)</td></tr>
+          <tr><td>Apple Terrace Bed – Q3</td><td>Snap Peas (spring), Zucchini (May)</td></tr>
+          <tr><td>Apple Terrace Bed – Q4</td><td>Bush Beans</td></tr>
+          <tr><td>Asparagus Bed</td><td>Lisianthus</td></tr>
+        </tbody>
+      </table>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>🌻 Growing together, season by season</p>
+  </footer>
+
+  <script>
+    function toggleView(view) {
+      document.getElementById('map-view').style.display = view === 'map' ? 'block' : 'none';
+      document.getElementById('list-view').style.display = view === 'list' ? 'block' : 'none';
+      document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+/* =========================================
+   GARDEN WEBSITE — style.css
+   Palette: deep soil, sage, cream, terracotta
+   ========================================= */
+
+:root {
+  --soil:       #2c1f14;
+  --bark:       #4a3728;
+  --sage:       #7a9e7e;
+  --sage-light: #a8c5a0;
+  --sage-pale:  #e8f0e4;
+  --cream:      #f5f0e8;
+  --terracotta: #c1674a;
+  --sun:        #e8b84b;
+  --text:       #2c1f14;
+  --text-light: #6b5544;
+  --white:      #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- HEADER ---- */
+header {
+  background-color: var(--soil);
+  color: var(--cream);
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 4px solid var(--sage);
+}
+
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+}
+
+header .subtitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--sage-light);
+  letter-spacing: 0.05em;
+}
+
+/* ---- NAV ---- */
+nav {
+  background-color: var(--bark);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--sage-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--sun);
+}
+
+/* ---- MAIN ---- */
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  width: 100%;
+}
+
+/* ---- YEAR SELECT ---- */
+.year-select {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.year-select h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--bark);
+  margin-bottom: 1.25rem;
+}
+
+.year-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.year-btn {
+  display: inline-block;
+  background-color: var(--sage);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.year-btn:hover {
+  background-color: var(--bark);
+  transform: translateY(-2px);
+}
+
+/* ---- INTRO CARDS ---- */
+.garden-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.intro-card {
+  background: var(--white);
+  border: 1px solid var(--sage-light);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--sage);
+}
+
+.intro-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--bark);
+  margin-bottom: 0.5rem;
+}
+
+.intro-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ---- PAGE TITLE (year pages) ---- */
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--bark);
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+
+/* ---- VIEW TOGGLE ---- */
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.toggle-btn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--sage);
+  border-radius: 2rem;
+  background: transparent;
+  color: var(--sage);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  font-family: 'Lato', sans-serif;
+}
+
+.toggle-btn.active,
+.toggle-btn:hover {
+  background: var(--sage);
+  color: var(--white);
+}
+
+/* ---- SECTION HEADING ---- */
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--bark);
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--sage-pale);
+}
+
+/* ---- MAP VIEW ---- */
+.map-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.map-grid-lower {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.map-grid-upper {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bed-card {
+  background: var(--white);
+  border: 1.5px solid var(--sage-light);
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+  min-height: 100px;
+}
+
+.bed-card .bed-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sage);
+  margin-bottom: 0.4rem;
+}
+
+.bed-card .bed-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: var(--bark);
+  margin-bottom: 0.4rem;
+}
+
+.bed-card .plant-list {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.bed-card.highlight {
+  border-left: 4px solid var(--terracotta);
+}
+
+.bed-card.flower {
+  border-left: 4px solid var(--sun);
+}
+
+/* ---- LIST VIEW ---- */
+.list-view table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.list-view th {
+  background-color: var(--sage);
+  color: var(--white);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.list-view td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--sage-pale);
+  vertical-align: top;
+}
+
+.list-view tr:nth-child(even) td {
+  background-color: var(--sage-pale);
+}
+
+.list-view tr:hover td {
+  background-color: #d8ebd0;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background-color: var(--soil);
+  color: var(--sage-light);
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  .garden-intro { grid-template-columns: 1fr; }
+  .map-grid-lower { grid-template-columns: repeat(2, 1fr); }
+  .map-grid-upper { grid-template-columns: repeat(2, 1fr); }
+}

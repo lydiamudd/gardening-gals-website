@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2026 Garden Map</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-icon">🌱</div>
+      <h1>Our Garden</h1>
+      <p class="subtitle">A record of what we've grown, year by year</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="2026.html">2026</a></li>
+      <li><a href="2025.html">2025</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1 class="page-title">🌿 2026 Garden Map</h1>
+    <p class="page-subtitle">Lower-level and upper-level beds</p>
+
+    <div class="view-toggle">
+      <button class="toggle-btn active" onclick="toggleView('map')">Map View</button>
+      <button class="toggle-btn" onclick="toggleView('list')">List View</button>
+    </div>
+
+    <!-- MAP VIEW -->
+    <div id="map-view">
+
+      <h2 class="section-heading">Lower-Level Garden</h2>
+      <div class="map-grid map-grid-lower">
+
+        <div class="bed-card highlight">
+          <div class="bed-label">Bed 1</div>
+          <div class="bed-name">Tomatoes</div>
+          <div class="plant-list">Tomatoes</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Bed 2</div>
+          <div class="bed-name">Snow Peas / Root Veg</div>
+          <div class="plant-list">Snow Peas, Beets, Carrots, Parsnips</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Bed 3</div>
+          <div class="bed-name">Snap Peas / Roots</div>
+          <div class="plant-list">Snap Peas, Turnip, Radish</div>
+        </div>
+
+        <div class="bed-card highlight">
+          <div class="bed-label">Bed 4</div>
+          <div class="bed-name">Peppers</div>
+          <div class="plant-list">Peppers</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Bed 5</div>
+          <div class="bed-name">Garlic / Cover Crop</div>
+          <div class="plant-list">Garlic, Tatsoi, Spring Buckwheat Cover Crop</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Bed 6</div>
+          <div class="bed-name">Greens / Herbs</div>
+          <div class="plant-list">Kale, Chard, Parsley, Basil</div>
+        </div>
+
+        <div class="bed-card highlight">
+          <div class="bed-label">Bed 7</div>
+          <div class="bed-name">Cucumbers / Tomatoes</div>
+          <div class="plant-list">Cucumber, Tomato</div>
+        </div>
+
+        <div class="bed-card flower">
+          <div class="bed-label">Bed 8 / Sunflower Bed</div>
+          <div class="bed-name">Flowers</div>
+          <div class="plant-list">Zinnia, Dahlia, Statice, Lobelia</div>
+        </div>
+
+      </div>
+
+      <h2 class="section-heading">Upper-Level Garden</h2>
+      <div class="map-grid map-grid-upper">
+
+        <div class="bed-card flower">
+          <div class="bed-label">Strawberry Bed</div>
+          <div class="bed-name">Herbs & Flowers</div>
+          <div class="plant-list">Cilantro, Rosemary, Chamomile, Lisianthus, Zinnia, Strawflower</div>
+        </div>
+
+        <div class="bed-card">
+          <div class="bed-label">Apple Terrace Bed</div>
+          <div class="bed-name">Vegetables (4 Quadrants)</div>
+          <div class="plant-list">
+            <strong>Q1:</strong> Spinach &amp; Arugula (spring) → Zucchini (summer)<br>
+            <strong>Q2:</strong> Bush Beans<br>
+            <strong>Q3:</strong> Spinach &amp; Arugula (spring) → Winter Squash<br>
+            <strong>Q4:</strong> Bush Beans
+          </div>
+        </div>
+
+        <div class="bed-card flower">
+          <div class="bed-label">Asparagus Bed</div>
+          <div class="bed-name">Sunflowers</div>
+          <div class="plant-list">Sunflowers</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LIST VIEW -->
+    <div id="list-view" style="display:none;" class="list-view">
+
+      <h2 class="section-heading">Lower-Level Garden</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Bed</th>
+            <th>Plants</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bed 1</td><td>Tomatoes</td></tr>
+          <tr><td>Bed 2</td><td>Snow Peas, Beets, Carrots, Parsnips</td></tr>
+          <tr><td>Bed 3</td><td>Snap Peas, Turnip, Radish</td></tr>
+          <tr><td>Bed 4</td><td>Peppers</td></tr>
+          <tr><td>Bed 5</td><td>Garlic, Tatsoi, Spring Buckwheat Cover Crop</td></tr>
+          <tr><td>Bed 6</td><td>Kale, Chard, Parsley, Basil</td></tr>
+          <tr><td>Bed 7</td><td>Cucumber, Tomato</td></tr>
+          <tr><td>Bed 8 / Sunflower Bed</td><td>Zinnia, Dahlia, Statice, Lobelia</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-heading">Upper-Level Garden</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Bed</th>
+            <th>Plants</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Strawberry Bed</td><td>Cilantro, Rosemary, Chamomile, Lisianthus, Zinnia, Strawflower</td></tr>
+          <tr><td>Apple Terrace Bed – Q1</td><td>Spinach &amp; Arugula (spring), Zucchini (summer)</td></tr>
+          <tr><td>Apple Terrace Bed – Q2</td><td>Bush Beans</td></tr>
+          <tr><td>Apple Terrace Bed – Q3</td><td>Spinach &amp; Arugula (spring), Winter Squash</td></tr>
+          <tr><td>Apple Terrace Bed – Q4</td><td>Bush Beans</td></tr>
+          <tr><td>Asparagus Bed</td><td>Sunflowers</td></tr>
+        </tbody>
+      </table>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>🌻 Growing together, season by season</p>
+  </footer>
+
+  <script>
+    function toggleView(view) {
+      document.getElementById('map-view').style.display = view === 'map' ? 'block' : 'none';
+      document.getElementById('list-view').style.display = view === 'list' ? 'block' : 'none';
+      document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
