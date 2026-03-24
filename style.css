@@ -340,3 +340,140 @@ footer {
   .map-grid-lower { grid-template-columns: repeat(2, 1fr); }
   .map-grid-upper { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* =========================================
+   GARDEN MAP LAYOUTS
+   ========================================= */
+
+/* ---- LOWER GARDEN ---- */
+.lower-garden-map {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.sunflower-bed {
+  width: 90px;
+  min-width: 90px;
+  background: var(--white);
+  border: 1.5px solid var(--sun);
+  border-left: 4px solid var(--sun);
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.lower-beds-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.beds-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.row-tall .bed-card {
+  min-height: 120px;
+  flex: 1;
+}
+
+.row-wide .bed-card {
+  min-height: 80px;
+  flex: 1;
+}
+
+/* ---- UPPER GARDEN ---- */
+.upper-garden-map {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.upper-bed {
+  width: 100%;
+  background: var(--white);
+  border: 1.5px solid var(--sage-light);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.strawberry-bed {
+  min-height: 80px;
+  border-left: 4px solid var(--terracotta);
+}
+
+.apple-terrace-bed {
+  min-height: 160px;
+  border-left: 4px solid var(--sage);
+}
+
+.asparagus-bed {
+  min-height: 60px;
+  border-left: 4px solid var(--sun);
+}
+
+.apple-terrace-label {
+  margin-bottom: 0.5rem;
+}
+
+.at-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.at-quadrant {
+  background: var(--sage-pale);
+  border: 1px solid var(--sage-light);
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  min-height: 60px;
+}
+
+/* ---- BED CARD (shared) ---- */
+.bed-card {
+  background: var(--white);
+  border: 1.5px solid var(--sage-light);
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+
+.bed-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--sage);
+  margin-bottom: 0.35rem;
+}
+
+.plant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.plant-entry {
+  font-size: 0.78rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.season {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.72rem;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .lower-garden-map { flex-direction: column; }
+  .sunflower-bed { width: 100%; min-width: unset; min-height: 60px; }
+  .row-tall, .row-wide { flex-wrap: wrap; }
+  .at-grid { grid-template-columns: 1fr; }
+}
