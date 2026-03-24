@@ -34,7 +34,7 @@ body {
 
 /* ---- HEADER ---- */
 header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
   background-size: cover;
   background-position: center;
   color: var(--cream);
@@ -308,7 +308,7 @@ main {
 
 /* ---- FOOTER ---- */
 footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
   background-size: cover;
   background-position: center;
   color: var(--sage-light);
@@ -476,4 +476,16 @@ footer {
   .sunflower-bed { width: 100%; min-width: unset; min-height: 60px; }
   .row-tall, .row-wide { flex-wrap: wrap; }
   .at-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- VARIETALS LINK ---- */
+.varietals-link {
+  color: var(--terracotta);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.varietals-link:hover {
+  text-decoration: underline;
 }
