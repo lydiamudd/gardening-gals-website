@@ -314,6 +314,21 @@ footer {
   margin-top: auto;
 }
 
+/* ---- HERO IMAGE ---- */
+.hero-image {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 0.75rem;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 600px) {
   header h1 { font-size: 2rem; }

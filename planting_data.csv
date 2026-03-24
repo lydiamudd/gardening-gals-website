@@ -1,0 +1,89 @@
+﻿year,bed_location,bed_name,plant_name,season,plant_category
+2026,Lower,One,Parsnips,All season,Root vegetable
+2026,Lower,One,Snow peas,Spring,Vegetable
+2026,Lower,One,Beets,Summer,Root vegetable
+2026,Lower,One,Carrots,All season,Root vegetable
+2026,Lower,One,Parsley,Summer,Herb
+2026,Lower,Two,Radish,Spring,Root vegetable
+2026,Lower,Two,Snap peas,Spring,Vegetable
+2026,Lower,Two,Turnips,Spring,Root vegetable
+2026,Lower,Three,Buckwheat,Spring,Cover crop
+2026,Lower,Three,Peppers,Summer,Vegetable
+2026,Lower,Three,Basil,Summer,Herb
+2026,Lower,Four,Garlic,Spring,Allium
+2026,Lower,Four,Tatsoi,Summer,Vegetable
+2026,Lower,Four,Kale,All season,Vegetable
+2026,Lower,Four,Chard,All season,Vegetable
+2026,Lower,Five,Cucumber,Summer,Vegetable
+2026,Lower,Five,Zinnia,Summer,FLower
+2026,Lower,Five,Dahlia ,Summer,FLower
+2026,Lower,Five,Statice,Summer,FLower
+2026,Lower,Five,Lobelia,Summer,FLower
+2026,Lower,Six,Cucumber,Summer,Vegetable
+2026,Lower,Six,Zinnia,Summer,FLower
+2026,Lower,Six,Dahlia ,Summer,FLower
+2026,Lower,Six,Statice,Summer,FLower
+2026,Lower,Six,Lobelia,Summer,FLower
+2026,Lower,Seven,Tomato,Summer,Vegetable
+2026,Lower,Seven,Zinnia,Summer,FLower
+2026,Lower,Seven,Dahlia ,Summer,FLower
+2026,Lower,Seven,Statice,Summer,FLower
+2026,Lower,Seven,Lobelia,Summer,FLower
+2026,Lower,Eight,Tomato,Summer,Vegetable
+2026,Lower,Eight,Zinnia,Summer,FLower
+2026,Lower,Eight,Dahlia ,Summer,FLower
+2026,Lower,Eight,Statice,Summer,FLower
+2026,Lower,Eight,Lobelia,Summer,FLower
+2026,Lower,SunfLower,Tomatoes,Summer,Vegetable
+2026,Lower,SunfLower,Calendula,Summer,FLower
+2026,Upper,Strawberry,Cilantro,Summer,Herb
+2026,Upper,Strawberry,Rosemary,Summer,Herb
+2026,Upper,Strawberry,Chamomile,Summer,Herb
+2026,Upper,Strawberry,Lisianthus,Summer,FLower
+2026,Upper,Strawberry,Zinnia,Summer,FLower
+2026,Upper,Strawberry,StrawfLower,Summer,FLower
+2026,Upper,Apple Terrace 1,Spinach,Spring,Vegetable
+2026,Upper,Apple Terrace 1,Arugula,Spring,Vegetable
+2026,Upper,Apple Terrace 1,Zucchini,Summer,Vegetable
+2026,Upper,Apple Terrace 2,Bush beans,Summer,Vegetable
+2026,Upper,Apple Terrace 3,Spinach,Spring,Vegetable
+2026,Upper,Apple Terrace 3,Arugula,Spring,Vegetable
+2026,Upper,Apple Terrace 3,Winter squash,Summer,Vegetable
+2026,Upper,Apple Terrace 4,Bush beans,Summer,Vegetable
+2026,Upper,Asparagus,SunfLowers,Summer,FLower
+2025,Upper,Strawberry,Strawberries,All season,Fruit
+2025,Upper,Apple Terrace 1,Snow peas,Spring,Vegetable
+2025,Upper,Apple Terrace 1,Winter squash,Summer,Vegetable
+2025,Upper,Apple Terrace 2,Lettuce,Spring,Vegetable
+2025,Upper,Apple Terrace 2,Bush beans,Summer,Vegetable
+2025,Upper,Apple Terrace 3,Snap peas,Spring,Vegetable
+2025,Upper,Apple Terrace 3,Zucchini,Summer,Vegetable
+2025,Upper,Apple Terrace 4,Bush beans,Summer,Vegetable
+2025,Upper,Asparagus,Lisianthus,Summer,FLower
+2025,Upper,Asparagus,Star fLower,Summer,FLower
+2025,Lower,SunfLower,Tomatoes,Summer,Vegetable
+2025,Lower,SunfLower,Calendula,Summer,FLower
+2025,Lower,One,Radish,Spring,Root vegetable
+2025,Lower,One,Turnips,Spring,Root vegetable
+2025,Lower,One,Zinnia,Summer,FLower
+2025,Lower,Two,Peppers,Summer,Vegetable
+2025,Lower,Two,Basil,Summer,Herb
+2025,Lower,Three,Beets,Spring,Root vegetable
+2025,Lower,Three,Parsnips,Spring,Root vegetable
+2025,Lower,Three,Carrots,Summer,Root vegetable
+2025,Lower,Three,Parsley,All season,Herb
+2025,Lower,Four,Cilantro,All season,Herb
+2025,Lower,Four,Kale,All season,Vegetable
+2025,Lower,Four,Chard,All season,Vegetable
+2025,Lower,Five,Tomatoes,Summer,Vegetable
+2025,Lower,Six,Shallots,Spring,Allium
+2025,Lower,Six,Leeks,Spring,Allium
+2025,Lower,Six,Garlic,Spring,Allium
+2025,Lower,Six,Tatsoi,Summer,Vegetable
+2025,Lower,Six,Lettuce,Summer,Vegetable
+2025,Lower,Seven,Dahlia ,Summer,FLower
+2025,Lower,Eight,Arugula,Spring,Vegetable
+2025,Lower,Eight,Cucumber,Summer,Vegetable
+2025,Lower,Eight,Spinach mustard,Spring,Vegetable
+2025,Lower,Eight,Statice,Summer,FLower
+2025,Lower,Eight,StrawfLower,Summer,FLower
