@@ -45,11 +45,10 @@ def build_table_rows(items):
     for item in items:
         plant_type = clean_seed_type(item["seed_type"])
         product_id = item["product_id"]
-        link = f'<a href="https://www.johnnyseeds.com/search/#q={product_id}&t=product" target="_blank">{product_id}</a>' if product_id else "—"
         rows += f"""        <tr>
           <td>{item['varietal']}</td>
           <td>{plant_type}</td>
-          <td>{link}</td>
+          
         </tr>\n"""
     return rows
 
@@ -101,7 +100,7 @@ def build_page(year):
           <tr>
             <th>Varietal</th>
             <th>Type</th>
-            <th>Product ID</th>
+            
           </tr>
         </thead>
         <tbody>

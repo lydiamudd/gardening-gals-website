@@ -165,7 +165,7 @@ def build_page(year):
   </nav>
   <main>
     <h1 class="page-title">🌿 {year} Garden Map</h1>
-    <p class="page-subtitle">Lower-level and upper-level beds</p>
+    <p class="page-subtitle">Lower-level and upper-level beds · <a href="varietals-{year}.html" class="varietals-link">View {year} Plant Varietals →</a></p>
     <div class="view-toggle">
       <button class="toggle-btn active" onclick="toggleView('map', this)">Map View</button>
       <button class="toggle-btn" onclick="toggleView('list', this)">List View</button>

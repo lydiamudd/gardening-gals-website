@@ -34,7 +34,7 @@ body {
 
 /* ---- HEADER ---- */
 header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
   background-size: cover;
   background-position: center;
   color: var(--cream);
@@ -308,7 +308,7 @@ main {
 
 /* ---- FOOTER ---- */
 footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
   background-size: cover;
   background-position: center;
   color: var(--sage-light);
