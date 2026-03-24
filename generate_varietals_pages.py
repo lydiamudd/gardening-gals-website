@@ -79,8 +79,7 @@ def build_page(year):
   <main>
     <h1 class="page-title">{year} Garden</h1>
     <div class="view-toggle">
-      <button class="toggle-btn" onclick="window.location.href='{year}.html'">Map View</button>
-      <button class="toggle-btn" onclick="window.location.href='{year}.html#list'">List View</button>
+      <button class="toggle-btn" onclick="window.location.href='{year}.html'">Map</button>
       <button class="toggle-btn active">Varietals</button>
     </div>
     <div class="list-view">
