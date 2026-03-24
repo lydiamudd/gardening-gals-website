@@ -166,8 +166,7 @@ def build_page(year):
   <main>
     <h1 class="page-title">{year} Garden</h1>
     <div class="view-toggle">
-      <button class="toggle-btn active" onclick="toggleView('map', this)">Map View</button>
-      <button class="toggle-btn" onclick="toggleView('list', this)">List View</button>
+      <button class="toggle-btn active">Map</button>
       <button class="toggle-btn" onclick="window.location.href='varietals-{year}.html'">Varietals</button>
     </div>
     <div id="map-view">
@@ -176,21 +175,12 @@ def build_page(year):
       <h2 class="section-heading">Upper-Level Garden</h2>
       {upper_map}
     </div>
-    <div id="list-view" style="display:none;" class="list-view">
-      {list_view}
-    </div>
+
   </main>
   <footer>
     <p></p>
   </footer>
-  <script>
-    function toggleView(view, btn) {{
-      document.getElementById('map-view').style.display = view === 'map' ? 'block' : 'none';
-      document.getElementById('list-view').style.display = view === 'list' ? 'block' : 'none';
-      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }}
-  </script>
+
 </body>
 </html>'''
 

@@ -34,8 +34,7 @@
   <main>
     <h1 class="page-title">2023 Garden</h1>
     <div class="view-toggle">
-      <button class="toggle-btn active" onclick="toggleView('map', this)">Map View</button>
-      <button class="toggle-btn" onclick="toggleView('list', this)">List View</button>
+      <button class="toggle-btn active">Map</button>
       <button class="toggle-btn" onclick="window.location.href='varietals-2023.html'">Varietals</button>
     </div>
     <div id="map-view">
@@ -150,70 +149,11 @@
         </div>
       </div>
     </div>
-    <div id="list-view" style="display:none;" class="list-view">
-      
-      <table>
-        <thead>
-          <tr><th>Garden</th><th>Bed</th><th>Plant</th><th>Season</th></tr>
-        </thead>
-        <tbody><tr><td>Lower</td><td>Bed One</td><td>Cilantro</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed One</td><td>Garlic</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed One</td><td>Shallots</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed One</td><td>Turnips</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed Two</td><td>Egyptian walking onions</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed Two</td><td>Lettuce</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed Two</td><td>Winter squash</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed Three</td><td>Parsley</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed Three</td><td>Peppers</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed Four</td><td>Basil</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed Four</td><td>Chard</td><td>All season</td></tr>
-<tr><td>Lower</td><td>Bed Four</td><td>Kale</td><td>All season</td></tr>
-<tr><td>Lower</td><td>Bed Five</td><td>Radish</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed Five</td><td>Tomatoes</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed Six</td><td>Tatsoi</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed Six</td><td>Tomatoes</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Bed Seven</td><td>Beets</td><td>All season</td></tr>
-<tr><td>Lower</td><td>Bed Seven</td><td>Carrots</td><td>All season</td></tr>
-<tr><td>Lower</td><td>Bed Seven</td><td>Parsnips</td><td>All season</td></tr>
-<tr><td>Lower</td><td>Bed Seven</td><td>Scallion</td><td>All season</td></tr>
-<tr><td>Lower</td><td>Bed Eight</td><td>Arugula</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed Eight</td><td>Spinach</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Bed Eight</td><td>Tomatoes</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Sunflower Bed</td><td>Basil</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Sunflower Bed</td><td>Calendula</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Sunflower Bed</td><td>Cucumber</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Sunflower Bed</td><td>Daikon</td><td>Summer</td></tr>
-<tr><td>Lower</td><td>Sunflower Bed</td><td>Turnips</td><td>Spring</td></tr>
-<tr><td>Lower</td><td>Sunflower Bed</td><td>Winter squash</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Strawberry</td><td>Strawberries</td><td>All season</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 1</td><td>Lettuce</td><td>Spring</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 1</td><td>Snow peas</td><td>Spring</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 1</td><td>Zucchini</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 2</td><td>Bush beans</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 2</td><td>Lettuce</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 3</td><td>Snap peas</td><td>Spring</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 3</td><td>Zucchini</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 4</td><td>Bush beans</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Apple Terrace 4</td><td>Lettuce</td><td>Spring</td></tr>
-<tr><td>Upper</td><td>Asparagus</td><td>Bachelor buttons</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Asparagus</td><td>Luffa squash</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Asparagus</td><td>Strawflower</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Asparagus</td><td>Sunflowers</td><td>Summer</td></tr>
-<tr><td>Upper</td><td>Asparagus</td><td>Zinnia</td><td>Summer</td></tr>
-</tbody>
-      </table>
-    </div>
+
   </main>
   <footer>
     <p></p>
   </footer>
-  <script>
-    function toggleView(view, btn) {
-      document.getElementById('map-view').style.display = view === 'map' ? 'block' : 'none';
-      document.getElementById('list-view').style.display = view === 'list' ? 'block' : 'none';
-      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-  </script>
+
 </body>
 </html>

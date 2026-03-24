@@ -179,6 +179,7 @@ main {
   font-size: 2rem;
   color: var(--bark);
   margin-bottom: 0.25rem;
+  text-align: center;
 }
 
 .page-subtitle {
