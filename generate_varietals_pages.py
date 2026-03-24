@@ -1,18 +1,11 @@
 import csv
-from collections import defaultdict
-
-# -------------------------------------------------------
-# generate_varietals_pages.py
-# Reads varietals.csv and generates a varietals page for each year
-# Usage: python3 generate_varietals_pages.py
-# -------------------------------------------------------
+import re
 
 CSV_FILE = "varietals.csv"
 YEARS = [2022, 2023, 2024, 2025, 2026]
 
 
 def read_varietals(year):
-    """Read varietals.csv and return list of dicts for the given year."""
     items = []
     with open(CSV_FILE, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -21,15 +14,11 @@ def read_varietals(year):
                 items.append({
                     "varietal": row["varietal"].strip(),
                     "seed_type": row["seed_type"].strip(),
-                    "product_id": row["product_id"].strip(),
                 })
     return items
 
 
 def clean_seed_type(seed_type):
-    """Extract the plant type from the seed type string."""
-    # Remove organic/F1/pelleted prefixes and 'Seed' suffix
-    import re
     s = seed_type
     s = re.sub(r'(?i)^(organic\s+)?(pelleted\s+)?\(f1\)\s+', '', s)
     s = re.sub(r'(?i)^organic\s+', '', s)
@@ -40,38 +29,31 @@ def clean_seed_type(seed_type):
 
 def build_table_rows(items):
     if not items:
-        return '<tr><td colspan="3">No varietal data available for this year.</td></tr>'
+        return '<tr><td colspan="2">No varietal data available for this year.</td></tr>'
     rows = ""
     for item in items:
         plant_type = clean_seed_type(item["seed_type"])
-        product_id = item["product_id"]
-        rows += f"""        <tr>
-          <td>{item['varietal']}</td>
-          <td>{plant_type}</td>
-          
-        </tr>\n"""
+        rows += f"        <tr><td>{item['varietal']}</td><td>{plant_type}</td></tr>\n"
     return rows
 
 
-def nav_links(current_year):
-    links = '<li><a href="index.html">Home</a></li>\n'
+def nav_dropdown(current_year):
+    options = ""
     for year in sorted(YEARS, reverse=True):
-        active = ' class="active"' if year == current_year else ''
-        links += f'      <li><a href="{year}.html"{active}>{year}</a></li>\n'
-    return links
+        options += f'<li><a href="varietals-{year}.html">{year}</a></li>\n'
+    return options
 
 
 def build_page(year):
     items = read_varietals(year)
     rows = build_table_rows(items)
-    count = len(items)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>{year} Plant Varietals</title>
+  <title>{year} Garden</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -83,36 +65,34 @@ def build_page(year):
       <p class="subtitle">Welcome to our online gardening record!</p>
     </div>
   </header>
-
   <nav>
     <ul>
-      {nav_links(year)}
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Year</a>
+        <ul class="dropdown-menu">
+          {nav_dropdown(year)}
+        </ul>
+      </li>
     </ul>
   </nav>
-
   <main>
-    <h1 class="page-title">🌿 {year} Plant Varietals</h1>
-    <p class="page-subtitle">{count} varieties ordered from Johnny\'s Selected Seeds</p>
-
+    <h1 class="page-title">{year} Garden</h1>
+    <div class="view-toggle">
+      <button class="toggle-btn" onclick="window.location.href='{year}.html'">Map View</button>
+      <button class="toggle-btn" onclick="window.location.href='{year}.html#list'">List View</button>
+      <button class="toggle-btn active">Varietals</button>
+    </div>
     <div class="list-view">
       <table>
         <thead>
-          <tr>
-            <th>Varietal</th>
-            <th>Type</th>
-            
-          </tr>
+          <tr><th>Varietal</th><th>Type</th></tr>
         </thead>
         <tbody>
 {rows}        </tbody>
       </table>
     </div>
-
-    <p style="margin-top: 1.5rem;">
-      <a href="{year}.html" class="year-btn" style="font-size: 0.9rem; padding: 0.5rem 1.25rem;">← Back to {year} Garden Map</a>
-    </p>
   </main>
-
   <footer>
     <p></p>
   </footer>

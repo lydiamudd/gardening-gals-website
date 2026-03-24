@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>2026 Plant Varietals</title>
+  <title>2026 Garden</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -15,112 +15,53 @@
       <p class="subtitle">Welcome to our online gardening record!</p>
     </div>
   </header>
-
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="2026.html" class="active">2026</a></li>
-      <li><a href="2025.html">2025</a></li>
-      <li><a href="2024.html">2024</a></li>
-      <li><a href="2023.html">2023</a></li>
-      <li><a href="2022.html">2022</a></li>
+      <li class="dropdown">
+        <a href="#">Year</a>
+        <ul class="dropdown-menu">
+          <li><a href="varietals-2026.html">2026</a></li>
+<li><a href="varietals-2025.html">2025</a></li>
+<li><a href="varietals-2024.html">2024</a></li>
+<li><a href="varietals-2023.html">2023</a></li>
+<li><a href="varietals-2022.html">2022</a></li>
 
+        </ul>
+      </li>
     </ul>
   </nav>
-
   <main>
-    <h1 class="page-title">🌿 2026 Plant Varietals</h1>
-    <p class="page-subtitle">14 varieties ordered from Johnny's Selected Seeds</p>
-
+    <h1 class="page-title">2026 Garden</h1>
+    <div class="view-toggle">
+      <button class="toggle-btn" onclick="window.location.href='2026.html'">Map View</button>
+      <button class="toggle-btn" onclick="window.location.href='2026.html#list'">List View</button>
+      <button class="toggle-btn active">Varietals</button>
+    </div>
     <div class="list-view">
       <table>
         <thead>
-          <tr>
-            <th>Varietal</th>
-            <th>Type</th>
-            
-          </tr>
+          <tr><th>Varietal</th><th>Type</th></tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Toma Verde</td>
-          <td>Tomatillo</td>
-          
-        </tr>
-        <tr>
-          <td>Sugar Snap</td>
-          <td>Pea</td>
-          
-        </tr>
-        <tr>
-          <td>Oregon Giant</td>
-          <td>Pea</td>
-          
-        </tr>
-        <tr>
-          <td>Sugar Ann</td>
-          <td>Pea</td>
-          
-        </tr>
-        <tr>
-          <td>Red Ace</td>
-          <td>Beet</td>
-          
-        </tr>
-        <tr>
-          <td>Rover</td>
-          <td>Radish</td>
-          
-        </tr>
-        <tr>
-          <td>Lunchbox Red</td>
-          <td>Snack Pepper</td>
-          
-        </tr>
-        <tr>
-          <td>Escamillo</td>
-          <td>Corno di Toro Pepper</td>
-          
-        </tr>
-        <tr>
-          <td>Calypso</td>
-          <td>Cilantro/Coriander</td>
-          
-        </tr>
-        <tr>
-          <td>Redbor</td>
-          <td>Kale</td>
-          
-        </tr>
-        <tr>
-          <td>Astro</td>
-          <td>Salad Arugula</td>
-          
-        </tr>
-        <tr>
-          <td>Sophy</td>
-          <td>Zucchini Squash</td>
-          
-        </tr>
-        <tr>
-          <td>Amethyst</td>
-          <td>Bean</td>
-          
-        </tr>
-        <tr>
-          <td>Rocdor</td>
-          <td>Bean</td>
-          
-        </tr>
+        <tr><td>Toma Verde</td><td>Tomatillo</td></tr>
+        <tr><td>Sugar Snap</td><td>Pea</td></tr>
+        <tr><td>Oregon Giant</td><td>Pea</td></tr>
+        <tr><td>Sugar Ann</td><td>Pea</td></tr>
+        <tr><td>Red Ace</td><td>Beet</td></tr>
+        <tr><td>Rover</td><td>Radish</td></tr>
+        <tr><td>Lunchbox Red</td><td>Snack Pepper</td></tr>
+        <tr><td>Escamillo</td><td>Corno di Toro Pepper</td></tr>
+        <tr><td>Calypso</td><td>Cilantro/Coriander</td></tr>
+        <tr><td>Redbor</td><td>Kale</td></tr>
+        <tr><td>Astro</td><td>Salad Arugula</td></tr>
+        <tr><td>Sophy</td><td>Zucchini Squash</td></tr>
+        <tr><td>Amethyst</td><td>Bean</td></tr>
+        <tr><td>Rocdor</td><td>Bean</td></tr>
         </tbody>
       </table>
     </div>
-
-    <p style="margin-top: 1.5rem;">
-      <a href="2026.html" class="year-btn" style="font-size: 0.9rem; padding: 0.5rem 1.25rem;">← Back to 2026 Garden Map</a>
-    </p>
   </main>
-
   <footer>
     <p></p>
   </footer>

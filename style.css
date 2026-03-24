@@ -489,3 +489,48 @@ footer {
 .varietals-link:hover {
   text-decoration: underline;
 }
+
+/* ---- NAV DROPDOWN ---- */
+nav ul {
+  position: relative;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--soil);
+  border: 1px solid var(--sage);
+  border-radius: 0.4rem;
+  min-width: 120px;
+  z-index: 100;
+  padding: 0.25rem 0;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--bark);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}

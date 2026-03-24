@@ -1,12 +1,6 @@
 import csv
 from collections import defaultdict
 
-# -------------------------------------------------------
-# generate_garden_pages.py
-# Reads planting_data.csv and generates a page for each year
-# Usage: python3 generate_garden_pages.py
-# -------------------------------------------------------
-
 CSV_FILE = "planting_data.csv"
 YEARS = [2022, 2023, 2024, 2025, 2026]
 
@@ -128,11 +122,11 @@ def build_list_view(lower, upper):
       </table>'''
 
 
-def nav_links():
-    links = '<li><a href="index.html">Home</a></li>\n'
+def nav_dropdown():
+    options = ""
     for year in sorted(YEARS, reverse=True):
-        links += f'      <li><a href="{year}.html">{year}</a></li>\n'
-    return links
+        options += f'<li><a href="{year}.html">{year}</a></li>\n'
+    return options
 
 
 def build_page(year):
@@ -146,7 +140,7 @@ def build_page(year):
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>{year} Garden Map</title>
+  <title>{year} Garden</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -160,15 +154,21 @@ def build_page(year):
   </header>
   <nav>
     <ul>
-      {nav_links()}
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Year</a>
+        <ul class="dropdown-menu">
+          {nav_dropdown()}
+        </ul>
+      </li>
     </ul>
   </nav>
   <main>
-    <h1 class="page-title">🌿 {year} Garden Map</h1>
-    <p class="page-subtitle">Lower-level and upper-level beds · <a href="varietals-{year}.html" class="varietals-link">View {year} Plant Varietals →</a></p>
+    <h1 class="page-title">{year} Garden</h1>
     <div class="view-toggle">
       <button class="toggle-btn active" onclick="toggleView('map', this)">Map View</button>
       <button class="toggle-btn" onclick="toggleView('list', this)">List View</button>
+      <button class="toggle-btn" onclick="window.location.href='varietals-{year}.html'">Varietals</button>
     </div>
     <div id="map-view">
       <h2 class="section-heading">Lower-Level Garden</h2>
