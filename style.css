@@ -34,7 +34,9 @@ body {
 
 /* ---- HEADER ---- */
 header {
-  background-color: var(--soil);
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
+  background-size: cover;
+  background-position: center;
   color: var(--cream);
   padding: 2.5rem 1.5rem 2rem;
   text-align: center;
@@ -306,7 +308,9 @@ main {
 
 /* ---- FOOTER ---- */
 footer {
-  background-color: var(--soil);
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
+  background-size: cover;
+  background-position: center;
   color: var(--sage-light);
   text-align: center;
   padding: 1.25rem;
