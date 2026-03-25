@@ -124,9 +124,9 @@ def build_page(year):
 <body>
   <header>
     <div class="header-inner">
-      <div class="header-icon">🌱</div>
+      <div class="header-icon"> </div>
       <h1>The Gardening Gals</h1>
-      <p class="subtitle">Welcome to our online gardening record!</p>
+      <p class="subtitle"><strong>Welcome to our online gardening journal!</strong></p>
     </div>
   </header>
   <nav>

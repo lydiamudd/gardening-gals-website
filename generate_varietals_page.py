@@ -62,7 +62,7 @@ def build_page():
     <div class="header-inner">
       <div class="header-icon"> </div>
       <h1>The Gardening Gals</h1>
-      <p class="subtitle">Welcome to our online gardening journal!</p>
+      <p class="subtitle"><strong>Welcome to our online gardening journal!</strong></p>
     </div>
   </header>
   <nav>
