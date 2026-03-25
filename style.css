@@ -536,3 +536,32 @@ nav ul {
 .dropdown:hover .dropdown-menu {
   display: flex;
 }
+
+/* ---- HOMEPAGE FULL BACKGROUND ---- */
+body.home {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.home .home-header {
+  background-image: none;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+body.home .home-footer {
+  background-image: none;
+  background-color: transparent;
+}
+
+body.home .home-main {
+  flex: 1;
+}
+
+/* ---- HERO IMAGE (removed) ---- */
+.hero-image {
+  display: none;
+}

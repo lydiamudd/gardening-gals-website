@@ -2,7 +2,7 @@ import csv
 from collections import defaultdict
 
 CSV_FILE = "planting_data.csv"
-YEARS = [2022, 2023, 2024, 2025, 2026]
+YEARS = [2019, 2020, 2022, 2023, 2024, 2025, 2026]
 
 LOWER_BED_ORDER = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Sunflower"]
 UPPER_BED_ORDER = ["Strawberry", "Apple Terrace 1", "Apple Terrace 2", "Apple Terrace 3", "Apple Terrace 4", "Asparagus"]
@@ -100,32 +100,10 @@ def build_upper_map(upper):
       </div>'''
 
 
-def build_list_view(lower, upper):
-    rows = ""
-    for bed_name in LOWER_BED_ORDER:
-        plants = lower.get(bed_name, [])
-        if plants:
-            label = f"Bed {bed_name}" if bed_name != "Sunflower" else "Sunflower Bed"
-            for plant, season in plants:
-                rows += f"<tr><td>Lower</td><td>{label}</td><td>{plant}</td><td>{season}</td></tr>\n"
-    for bed_name in UPPER_BED_ORDER:
-        plants = upper.get(bed_name, [])
-        if plants:
-            for plant, season in plants:
-                rows += f"<tr><td>Upper</td><td>{bed_name}</td><td>{plant}</td><td>{season}</td></tr>\n"
-    return f'''
-      <table>
-        <thead>
-          <tr><th>Garden</th><th>Bed</th><th>Plant</th><th>Season</th></tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </table>'''
-
-
 def nav_dropdown():
     options = ""
     for year in sorted(YEARS, reverse=True):
-        options += f'<li><a href="{year}.html">{year}</a></li>\n'
+        options += f'          <li><a href="{year}.html">{year}</a></li>\n'
     return options
 
 
@@ -133,7 +111,6 @@ def build_page(year):
     lower, upper = read_csv(year)
     lower_map = build_lower_map(lower)
     upper_map = build_upper_map(upper)
-    list_view = build_list_view(lower, upper)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -156,31 +133,23 @@ def build_page(year):
     <ul>
       <li><a href="index.html">Home</a></li>
       <li class="dropdown">
-        <a href="#">Year</a>
+        <a href="#">Layout</a>
         <ul class="dropdown-menu">
-          {nav_dropdown()}
-        </ul>
+{nav_dropdown()}        </ul>
       </li>
+      <li><a href="varietals.html">Varietals</a></li>
     </ul>
   </nav>
   <main>
-    <h1 class="page-title">{year} Garden</h1>
-    <div class="view-toggle">
-      <button class="toggle-btn active">Map</button>
-      <button class="toggle-btn" onclick="window.location.href='varietals-{year}.html'">Varietals</button>
-    </div>
-    <div id="map-view">
-      <h2 class="section-heading">Lower-Level Garden</h2>
-      {lower_map}
-      <h2 class="section-heading">Upper-Level Garden</h2>
-      {upper_map}
-    </div>
-
+    <h1 class="page-title">{year} Garden Layout</h1>
+    <h2 class="section-heading">Lower-Level Garden</h2>
+    {lower_map}
+    <h2 class="section-heading">Upper-Level Garden</h2>
+    {upper_map}
   </main>
   <footer>
     <p></p>
   </footer>
-
 </body>
 </html>'''
 
