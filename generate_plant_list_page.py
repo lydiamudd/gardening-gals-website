@@ -14,6 +14,11 @@ MANUAL_MAP = {
     "zucchini": "Zucchini Squash",
 }
 
+# Normalize inconsistent plant_category values in the CSV
+CATEGORY_FIXES = {
+    "covercrop": "Cover crop",
+}
+
 
 def clean_seed_type(seed_type):
     s = seed_type
@@ -31,20 +36,30 @@ def normalize(s):
     return s
 
 
+def clean_category(category):
+    """Normalize inconsistent plant_category values."""
+    return CATEGORY_FIXES.get(category.lower().strip(), category.strip())
+
+
 def read_planting_data():
     """Returns:
       - plant_years: dict of plant_name -> sorted list of years
-      - plant_names: sorted list of unique plant names
+      - plant_category: dict of plant_name -> category (from plant_category column)
+      - plant_names: list of unique plant names sorted by (category, plant_name)
     """
     plant_years = defaultdict(set)
+    plant_category = {}
     with open(PLANTING_CSV, newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         for row in reader:
             plant = row["plant_name"].strip()
             year = str(row["year"]).strip()
+            category = clean_category(row["plant_category"])
             plant_years[plant].add(year)
-    plant_names = sorted(plant_years.keys(), key=lambda x: x.lower())
-    return {p: sorted(y) for p, y in plant_years.items()}, plant_names
+            plant_category[plant] = category
+    # Sort alphabetically: first by category, then by plant name
+    plant_names = sorted(plant_years.keys(), key=lambda x: (plant_category[x].lower(), x.lower()))
+    return {p: sorted(y) for p, y in plant_years.items()}, plant_category, plant_names
 
 
 def read_varietals_data():
@@ -72,16 +87,17 @@ def get_cleaned_type(plant_name, norm_to_cleaned):
     return norm_to_cleaned.get(n)
 
 
-def build_table_rows(plant_names, plant_years, type_varietals, norm_to_cleaned):
+def build_table_rows(plant_names, plant_years, plant_category, type_varietals, norm_to_cleaned):
     rows = ""
     for plant in plant_names:
+        category = plant_category.get(plant, "")
         years_str = ", ".join(plant_years.get(plant, []))
         cleaned = get_cleaned_type(plant, norm_to_cleaned)
         if cleaned and cleaned in type_varietals:
             varietals_str = ", ".join(type_varietals[cleaned])
         else:
             varietals_str = ""
-        rows += f"        <tr><td>{plant}</td><td>{years_str}</td><td>{varietals_str}</td></tr>\n"
+        rows += f"        <tr><td>{category}</td><td>{plant}</td><td>{years_str}</td><td>{varietals_str}</td></tr>\n"
     return rows
 
 
@@ -93,20 +109,20 @@ def nav_dropdown():
 
 
 def build_page():
-    plant_years, plant_names = read_planting_data()
+    plant_years, plant_category, plant_names = read_planting_data()
     type_varietals, norm_to_cleaned = read_varietals_data()
-    rows = build_table_rows(plant_names, plant_years, type_varietals, norm_to_cleaned)
+    rows = build_table_rows(plant_names, plant_years, plant_category, type_varietals, norm_to_cleaned)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Plant List – The Gardening Gals</title>
+  <title>Plant Index – The Gardening Gals</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body class="varietals">
+<body class="index-page">
   <header>
     <div class="header-inner">
       <div class="header-icon"> </div>
@@ -122,16 +138,16 @@ def build_page():
         <ul class="dropdown-menu">
 {nav_dropdown()}        </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <!-- <li><a href="varietals.html">Varietals</a></li> -->
+      <li><a href="plant_index.html">Index</a></li>
+      <li><a href="varietals.html">Varietals</a></li>
     </ul>
   </nav>
   <main>
-    <h1 class="page-title">Plant List</h1>
+    <h1 class="page-title">Plant Index</h1>
     <div class="list-view">
       <table>
         <thead>
-          <tr><th>Type</th><th>Year(s)</th><th>Varietals</th></tr>
+          <tr><th>Type</th><th>Plant</th><th>Year(s)</th><th>Varietal(s)</th></tr>
         </thead>
         <tbody>
 {rows}        </tbody>
@@ -146,6 +162,6 @@ def build_page():
 
 
 html = build_page()
-with open("plant_list.html", "w", encoding="utf-8") as f:
+with open("plant_index.html", "w", encoding="utf-8") as f:
     f.write(html)
-print("✅ plant_list.html generated successfully!")
+print("✅ plant_index.html generated successfully!")
