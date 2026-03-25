@@ -112,7 +112,7 @@ main {
 /* Wraps each garden level (lower / upper) with a cream card,
    leaving a gap between them so the background image shows through */
 .garden-section-card {
-  background-color: var(--cream, 0.5);
+  background-color: var(--cream);
   border-radius: 0.75rem;
   padding: 1.25rem;
   margin-bottom: 0.5rem;
@@ -421,7 +421,7 @@ footer {
 
 .kitchen-herbs-bed {
   min-height: 60px;
-  border-left: 4px solid var(--soil);
+  border-left: 4px solid var(--sage);
 }
 
 .apple-terrace-bed {
@@ -476,32 +476,16 @@ footer {
   gap: 0.2rem;
 }
 
-/* ---- SEASON HEADINGS & PLANT BULLETS ---- */
-.season-heading {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--bark);
-  margin-top: 0.4rem;
-  margin-bottom: 0.1rem;
-}
-
-.season-heading:first-child {
-  margin-top: 0;
-}
-
-.plant-bullets {
-  list-style: disc;
-  padding-left: 1.1rem;
-  margin: 0 0 0.2rem 0;
-}
-
 .plant-entry {
   font-size: 0.78rem;
   color: var(--text);
   line-height: 1.4;
+}
+
+.season {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.72rem;
 }
 
 /* ---- RESPONSIVE ---- */

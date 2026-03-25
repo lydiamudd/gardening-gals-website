@@ -7,9 +7,6 @@ YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 LOWER_BED_ORDER = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Sunflower"]
 UPPER_BED_ORDER = ["Strawberry", "Kitchen Herbs", "Apple Terrace 1", "Apple Terrace 2", "Apple Terrace 3", "Apple Terrace 4", "Asparagus"]
 
-SEASON_ORDER = ["All season", "Spring", "Summer", "Fall"]
-
-
 def read_csv(year):
     lower = defaultdict(list)
     upper = defaultdict(list)
@@ -29,34 +26,16 @@ def read_csv(year):
     return lower, upper
 
 
+SEASON_ORDER = ["All season", "Spring", "Summer", "Fall"]
+
 def plant_lines(plants):
-    """Group plants by season, output as season headings with bulleted lists.
-    Only includes seasons that actually have plants. Order: All season, Spring, Summer, Fall."""
-    by_season = defaultdict(list)
-    for plant, season in plants:
-        by_season[season].append(plant)
-
+    def season_key(item):
+        season = item[1]
+        return SEASON_ORDER.index(season) if season in SEASON_ORDER else len(SEASON_ORDER)
+    sorted_plants = sorted(plants, key=season_key)
     lines = []
-    for season in SEASON_ORDER:
-        if season not in by_season:
-            continue
-        season_plants = sorted(by_season[season])
-        lines.append(f'<span class="season-heading">{season}</span>')
-        lines.append('<ul class="plant-bullets">')
-        for p in season_plants:
-            lines.append(f'  <li class="plant-entry">{p}</li>')
-        lines.append('</ul>')
-
-    # Handle any unexpected seasons not in SEASON_ORDER
-    for season, season_plants in by_season.items():
-        if season in SEASON_ORDER:
-            continue
-        lines.append(f'<span class="season-heading">{season}</span>')
-        lines.append('<ul class="plant-bullets">')
-        for p in sorted(season_plants):
-            lines.append(f'  <li class="plant-entry">{p}</li>')
-        lines.append('</ul>')
-
+    for plant, season in sorted_plants:
+        lines.append(f'<span class="plant-entry">{plant} <span class="season">({season})</span></span>')
     return "\n".join(lines)
 
 
