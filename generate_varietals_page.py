@@ -57,7 +57,7 @@ def build_page():
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="varietals">
   <header>
     <div class="header-inner">
       <div class="header-icon"> </div>
