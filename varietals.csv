@@ -1,5 +1,5 @@
 year,varietal,seed_type
-2026,Toma Verde,Tomatillo Seed
+2026,Toma Verde,Tomatillo
 2026,Sugar Snap,Snap Pea
 2026,Oregon Giant,Snow Pea
 2026,Sugar Ann,Snap Pea
@@ -32,7 +32,6 @@ year,varietal,seed_type
 2025,Galahad,Tomatoes
 2025,Zebra Green,Tomatoes
 2025,,Tomatillo
-2025,TBD Early fruiting slicer from Cure,Tomatoes
 2024,Cornito Arancia,Sweet Pepper
 2024,Lunchbox Red,Sweet Pepper
 2024,Jimmy Nardello,Sweet Pepper
@@ -65,7 +64,7 @@ year,varietal,seed_type
 2023,Sweet Jade,Kabocha
 2023,Hakurei,Turnip
 2023,Prospera DMR (CG1),Basil
-2023,Common Chamomile,Chamomile
+2023,Common,Chamomile
 2023,Santo,Organic Cilantro Seed
 2023,Giant of Italy,Organic Parsley Seed
 2023,Speckled Roman Paster,Tomatoes
@@ -147,4 +146,26 @@ year,varietal,seed_type
 2020,Amber Queen,Dahlia
 2020,Chilson's Pride,Dahlia
 2020,Crossfield Ebony,Dahlia
-2021,Winter Rye Grass,Cover crop
+2021,Common,Winter Rye
+2020,German,Chamomile
+2026,Common,Chamomile
+2025,Common,Chamomile
+2021,German,Chamomile
+2022,German,Chamomile
+2023,German,Chamomile
+2024,German,Chamomile
+2025,Cactus Flower Blend,Zinnia
+2025,California Giants,Zinnia
+2025,Queen Lime,Zinnia
+2026,Black Knight,Scabiosa Pincushion
+2026,Magic Carpet,Snapdragon
+2026,Boulder County Fair Grounds,Zinnia
+2025,Procyon,Dahlia
+2025,Vassio Meggos,Dahlia
+2025,Cafe au Lait,Dahlia
+2025,Kelvin Floodlight,Dahlia
+2025,Camano Stroll,Dahlia
+2025,Ivanetti,Dahlia
+2026,Crazy Love,Dahlia
+2026,Lilac Time,Dahlia
+2026,Blazing Star,Liatris
