@@ -6,15 +6,12 @@ PLANTING_CSV = "planting_data.csv"
 VARIETALS_CSV = "varietals.csv"
 YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 
-# Manual overrides for cases where normalization alone can't match
-# plant_name (normalized) -> cleaned seed_type in varietals.csv
 MANUAL_MAP = {
     "tomato": "Tomato",
     "pepper": "Sweet Pepper",
     "zucchini": "Zucchini Squash",
 }
 
-# Normalize inconsistent plant_category values in the CSV
 CATEGORY_FIXES = {
     "covercrop": "Cover crop",
 }
@@ -29,28 +26,15 @@ def clean_seed_type(seed_type):
     return s.strip()
 
 
-# def normalize(s):
-#     """Lowercase, strip whitespace, and remove trailing 's' for basic plural matching."""
-#     s = s.lower().strip()
-#     s = re.sub(r's$', '', s)
-#     return s
-
 def normalize(s):
-    """Lowercase and strip whitespace for matching."""
     return s.lower().strip()
 
 
 def clean_category(category):
-    """Normalize inconsistent plant_category values."""
     return CATEGORY_FIXES.get(category.lower().strip(), category.strip())
 
 
 def read_planting_data():
-    """Returns:
-      - plant_years: dict of plant_name -> sorted list of years
-      - plant_category: dict of plant_name -> category (from plant_category column)
-      - plant_names: list of unique plant names sorted by (category, plant_name)
-    """
     plant_years = defaultdict(set)
     plant_category = {}
     with open(PLANTING_CSV, newline="", encoding="utf-8-sig") as f:
@@ -61,16 +45,11 @@ def read_planting_data():
             category = clean_category(row["plant_category"])
             plant_years[plant].add(year)
             plant_category[plant] = category
-    # Sort alphabetically: first by category, then by plant name
     plant_names = sorted(plant_years.keys(), key=lambda x: (plant_category[x].lower(), x.lower()))
     return {p: sorted(y) for p, y in plant_years.items()}, plant_category, plant_names
 
 
 def read_varietals_data():
-    """Returns:
-      - type_varietals: dict of cleaned_seed_type -> sorted list of unique varietals
-      - norm_to_cleaned: dict of normalized seed_type -> original cleaned seed_type
-    """
     type_varietals = defaultdict(set)
     norm_to_cleaned = {}
     with open(VARIETALS_CSV, newline="", encoding="utf-8-sig") as f:
@@ -84,25 +63,49 @@ def read_varietals_data():
 
 
 def get_cleaned_type(plant_name, norm_to_cleaned):
-    """Map a plant_name from planting_data to a cleaned seed_type from varietals."""
     n = normalize(plant_name)
     if n in MANUAL_MAP:
         return MANUAL_MAP[n]
     return norm_to_cleaned.get(n)
 
 
-def build_table_rows(plant_names, plant_years, plant_category, type_varietals, norm_to_cleaned):
-    rows = ""
+def build_category_sections(plant_names, plant_years, plant_category, type_varietals, norm_to_cleaned):
+    # Group plants by category, preserving alphabetical sort order
+    categories = []
+    category_plants = defaultdict(list)
     for plant in plant_names:
-        category = plant_category.get(plant, "")
-        years_str = ", ".join(plant_years.get(plant, []))
-        cleaned = get_cleaned_type(plant, norm_to_cleaned)
-        if cleaned and cleaned in type_varietals:
-            varietals_str = ", ".join(type_varietals[cleaned])
-        else:
-            varietals_str = ""
-        rows += f"        <tr><td>{category}</td><td>{plant}</td><td>{years_str}</td><td>{varietals_str}</td></tr>\n"
-    return rows
+        cat = plant_category.get(plant, "")
+        if cat not in category_plants:
+            categories.append(cat)
+        category_plants[cat].append(plant)
+
+    sections = ""
+    for cat in categories:
+        plants = category_plants[cat]
+        rows = ""
+        for plant in plants:
+            years_str = ", ".join(plant_years.get(plant, []))
+            cleaned = get_cleaned_type(plant, norm_to_cleaned)
+            if cleaned and cleaned in type_varietals:
+                varietals_str = ", ".join(type_varietals[cleaned])
+            else:
+                varietals_str = ""
+            rows += f"            <tr><td>{plant}</td><td>{years_str}</td><td>{varietals_str}</td></tr>\n"
+
+        sections += f'''    <h2 class="section-heading">{cat}</h2>
+    <div class="garden-section-card">
+      <div class="list-view">
+        <table>
+          <thead>
+            <tr><th>Plant</th><th>Year(s)</th><th>Varietal(s)</th></tr>
+          </thead>
+          <tbody>
+{rows}          </tbody>
+        </table>
+      </div>
+    </div>
+'''
+    return sections
 
 
 def nav_dropdown():
@@ -115,14 +118,14 @@ def nav_dropdown():
 def build_page():
     plant_years, plant_category, plant_names = read_planting_data()
     type_varietals, norm_to_cleaned = read_varietals_data()
-    rows = build_table_rows(plant_names, plant_years, plant_category, type_varietals, norm_to_cleaned)
+    sections = build_category_sections(plant_names, plant_years, plant_category, type_varietals, norm_to_cleaned)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Plant List – The Gardening Gals</title>
+  <title>Plant List - The Gardening Gals</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -148,16 +151,7 @@ def build_page():
   </nav>
   <main>
     <h1 class="page-title">Plant List</h1>
-    <div class="list-view">
-      <table>
-        <thead>
-          <tr><th>Type</th><th>Plant</th><th>Year(s)</th><th>Varietal(s)</th></tr>
-        </thead>
-        <tbody>
-{rows}        </tbody>
-      </table>
-    </div>
-  </main>
+{sections}  </main>
   <footer>
     <p></p>
   </footer>
@@ -168,4 +162,4 @@ def build_page():
 html = build_page()
 with open("plant_list.html", "w", encoding="utf-8") as f:
     f.write(html)
-print("✅ plant_list.html generated successfully!")
+print("Plant list generated successfully!")

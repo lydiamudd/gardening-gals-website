@@ -421,7 +421,7 @@ footer {
 
 .kitchen-herbs-bed {
   min-height: 60px;
-  border-left: 4px solid var(--sage);
+  border-left: 4px solid var(--text-light);
 }
 
 .apple-terrace-bed {
@@ -649,7 +649,17 @@ body.plant-list-page footer {
   background-attachment: fixed;
 }
 
-body.plant-list-page .list-view th,
-body.plant-list-page .list-view td {
+body.plant-list-page .list-view th:nth-child(1),
+body.plant-list-page .list-view td:nth-child(1) {
+  width: 30%;
+}
+
+body.plant-list-page .list-view th:nth-child(2),
+body.plant-list-page .list-view td:nth-child(2) {
   width: 25%;
+}
+
+body.plant-list-page .list-view th:nth-child(3),
+body.plant-list-page .list-view td:nth-child(3) {
+  width: 45%;
 }
