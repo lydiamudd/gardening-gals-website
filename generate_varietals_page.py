@@ -74,7 +74,7 @@ def build_page():
 {nav_dropdown()}        </ul>
       </li>
       <li><a href="plant_list.html">Plant List</a></li>
-      # <li><a href="varietals.html">Varietals</a></li>
+      <li><a href="varietals.html">Varietals</a></li>
     </ul>
   </nav>
   <main>
