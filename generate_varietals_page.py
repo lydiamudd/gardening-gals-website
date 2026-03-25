@@ -3,7 +3,7 @@ import re
 from collections import defaultdict
 
 CSV_FILE = "varietals.csv"
-YEARS = [2019, 2020, 2022, 2023, 2024, 2025, 2026]
+YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 
 
 def clean_seed_type(seed_type):

@@ -2,7 +2,7 @@ import csv
 from collections import defaultdict
 
 CSV_FILE = "planting_data.csv"
-YEARS = [2019, 2020, 2022, 2023, 2024, 2025, 2026]
+YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 
 LOWER_BED_ORDER = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Sunflower"]
 UPPER_BED_ORDER = ["Strawberry", "Apple Terrace 1", "Apple Terrace 2", "Apple Terrace 3", "Apple Terrace 4", "Asparagus"]
