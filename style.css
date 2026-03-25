@@ -568,21 +568,21 @@ body.home .home-main {
 
 /* ---- INNER PAGE FULL BACKGROUND ---- */
 body.layout {
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_calendula_milkweek.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_calendula_milkweed.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.layout header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_calendula_milkweek.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_calendula_milkweed.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.layout footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_calendula_milkweek.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_calendula_milkweed.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
