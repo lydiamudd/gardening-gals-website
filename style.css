@@ -105,6 +105,18 @@ main {
   margin: 0 auto;
   padding: 2.5rem 1.5rem;
   width: 100%;
+  /* No background-color — page background image shows through between section cards */
+}
+
+/* ---- GARDEN SECTION CARD ---- */
+/* Wraps each garden level (lower / upper) with a cream card,
+   leaving a gap between them so the background image shows through */
+.garden-section-card {
+  background-color: var(--cream, 0.5);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
 /* ---- YEAR SELECT ---- */
@@ -153,7 +165,6 @@ main {
 }
 
 .intro-card {
-  /* background: var(--white); */
   border: 1px solid var(--sage-light);
   border-radius: 0.75rem;
   padding: 1.5rem;
@@ -177,7 +188,7 @@ main {
 .page-title {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
-  color: var(--bark);
+  color: var(--cream);
   margin-bottom: 0.25rem;
   text-align: center;
 }
@@ -220,10 +231,10 @@ main {
 .section-heading {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
-  color: var(--bark);
+  color: var(--cream);
   margin: 2rem 0 1rem;
   padding-bottom: 0.4rem;
-  border-bottom: 2px solid var(--sage-pale);
+  border-bottom: 2px solid rgba(232, 240, 228, 0.3);
 }
 
 /* ---- MAP VIEW ---- */
@@ -408,6 +419,11 @@ footer {
   border-left: 4px solid var(--terracotta);
 }
 
+.kitchen-herbs-bed {
+  min-height: 60px;
+  border-left: 4px solid var(--soil);
+}
+
 .apple-terrace-bed {
   min-height: 160px;
   border-left: 4px solid var(--sage);
@@ -460,16 +476,32 @@ footer {
   gap: 0.2rem;
 }
 
+/* ---- SEASON HEADINGS & PLANT BULLETS ---- */
+.season-heading {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bark);
+  margin-top: 0.4rem;
+  margin-bottom: 0.1rem;
+}
+
+.season-heading:first-child {
+  margin-top: 0;
+}
+
+.plant-bullets {
+  list-style: disc;
+  padding-left: 1.1rem;
+  margin: 0 0 0.2rem 0;
+}
+
 .plant-entry {
   font-size: 0.78rem;
   color: var(--text);
   line-height: 1.4;
-}
-
-.season {
-  color: var(--text-light);
-  font-style: italic;
-  font-size: 0.72rem;
 }
 
 /* ---- RESPONSIVE ---- */
@@ -609,9 +641,8 @@ body.varietals footer {
   background-attachment: fixed;
 }
 
-main {
-  background-color: var(--cream);
-}
+/* main has no background-color so the page background image shows through
+   between .garden-section-card blocks on layout pages */
 
 body.plant-list-page {
   background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_borrage.jpg');

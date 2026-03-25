@@ -5,7 +5,9 @@ CSV_FILE = "planting_data.csv"
 YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 
 LOWER_BED_ORDER = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Sunflower"]
-UPPER_BED_ORDER = ["Strawberry", "Apple Terrace 1", "Apple Terrace 2", "Apple Terrace 3", "Apple Terrace 4", "Asparagus"]
+UPPER_BED_ORDER = ["Strawberry", "Kitchen Herbs", "Apple Terrace 1", "Apple Terrace 2", "Apple Terrace 3", "Apple Terrace 4", "Asparagus"]
+
+SEASON_ORDER = ["All season", "Spring", "Summer", "Fall"]
 
 
 def read_csv(year):
@@ -28,9 +30,33 @@ def read_csv(year):
 
 
 def plant_lines(plants):
-    lines = []
+    """Group plants by season, output as season headings with bulleted lists.
+    Only includes seasons that actually have plants. Order: All season, Spring, Summer, Fall."""
+    by_season = defaultdict(list)
     for plant, season in plants:
-        lines.append(f'<span class="plant-entry">{plant} <span class="season">({season})</span></span>')
+        by_season[season].append(plant)
+
+    lines = []
+    for season in SEASON_ORDER:
+        if season not in by_season:
+            continue
+        season_plants = sorted(by_season[season])
+        lines.append(f'<span class="season-heading">{season}</span>')
+        lines.append('<ul class="plant-bullets">')
+        for p in season_plants:
+            lines.append(f'  <li class="plant-entry">{p}</li>')
+        lines.append('</ul>')
+
+    # Handle any unexpected seasons not in SEASON_ORDER
+    for season, season_plants in by_season.items():
+        if season in SEASON_ORDER:
+            continue
+        lines.append(f'<span class="season-heading">{season}</span>')
+        lines.append('<ul class="plant-bullets">')
+        for p in sorted(season_plants):
+            lines.append(f'  <li class="plant-entry">{p}</li>')
+        lines.append('</ul>')
+
     return "\n".join(lines)
 
 
@@ -44,25 +70,27 @@ def build_lower_map(lower):
 
     sunflower_plants = lower.get("Sunflower", [])
     return f'''
-      <div class="lower-garden-map">
-        <div class="sunflower-bed">
-          <div class="bed-label">Sunflower Bed</div>
-          <div class="plant-list">{plant_lines(sunflower_plants)}</div>
-        </div>
-        <div class="lower-beds-grid">
-          <div class="beds-row row-tall">
-            {bed("One")}
-            {bed("Two")}
-            {bed("Three")}
-            {bed("Four")}
+      <div class="garden-section-card">
+        <div class="lower-garden-map">
+          <div class="sunflower-bed">
+            <div class="bed-label">Sunflower Bed</div>
+            <div class="plant-list">{plant_lines(sunflower_plants)}</div>
           </div>
-          <div class="beds-row row-wide">
-            {bed("Five")}
-            {bed("Six")}
-          </div>
-          <div class="beds-row row-wide">
-            {bed("Seven")}
-            {bed("Eight")}
+          <div class="lower-beds-grid">
+            <div class="beds-row row-tall">
+              {bed("One")}
+              {bed("Two")}
+              {bed("Three")}
+              {bed("Four")}
+            </div>
+            <div class="beds-row row-wide">
+              {bed("Five")}
+              {bed("Six")}
+            </div>
+            <div class="beds-row row-wide">
+              {bed("Seven")}
+              {bed("Eight")}
+            </div>
           </div>
         </div>
       </div>'''
@@ -77,25 +105,32 @@ def build_upper_map(upper):
         </div>'''
 
     strawberry_plants = upper.get("Strawberry", [])
+    kitchen_herbs_plants = upper.get("Kitchen Herbs", [])
     asparagus_plants = upper.get("Asparagus", [])
     return f'''
-      <div class="upper-garden-map">
-        <div class="upper-bed strawberry-bed">
-          <div class="bed-label">Strawberry Bed</div>
-          <div class="plant-list">{plant_lines(strawberry_plants)}</div>
-        </div>
-        <div class="upper-bed apple-terrace-bed">
-          <div class="bed-label apple-terrace-label">Apple Terrace Bed</div>
-          <div class="at-grid">
-            {atbed("Apple Terrace 1")}
-            {atbed("Apple Terrace 2")}
-            {atbed("Apple Terrace 3")}
-            {atbed("Apple Terrace 4")}
+      <div class="garden-section-card">
+        <div class="upper-garden-map">
+          <div class="upper-bed strawberry-bed">
+            <div class="bed-label">Strawberry Bed</div>
+            <div class="plant-list">{plant_lines(strawberry_plants)}</div>
           </div>
-        </div>
-        <div class="upper-bed asparagus-bed">
-          <div class="bed-label">Asparagus Bed</div>
-          <div class="plant-list">{plant_lines(asparagus_plants)}</div>
+          <div class="upper-bed kitchen-herbs-bed">
+            <div class="bed-label">Kitchen Herbs Bed</div>
+            <div class="plant-list">{plant_lines(kitchen_herbs_plants)}</div>
+          </div>
+          <div class="upper-bed apple-terrace-bed">
+            <div class="bed-label apple-terrace-label">Apple Terrace Bed</div>
+            <div class="at-grid">
+              {atbed("Apple Terrace 1")}
+              {atbed("Apple Terrace 2")}
+              {atbed("Apple Terrace 3")}
+              {atbed("Apple Terrace 4")}
+            </div>
+          </div>
+          <div class="upper-bed asparagus-bed">
+            <div class="bed-label">Asparagus Bed</div>
+            <div class="plant-list">{plant_lines(asparagus_plants)}</div>
+          </div>
         </div>
       </div>'''
 
