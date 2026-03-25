@@ -612,3 +612,29 @@ body.varietals footer {
 main {
   background-color: var(--cream);
 }
+
+body.plant-list-page {
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_dill.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.plant-list-page header {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.plant-list-page footer {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_dill.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.plant-list-page .list-view th,
+body.plant-list-page .list-view td {
+  width: 33.33%;
+}
