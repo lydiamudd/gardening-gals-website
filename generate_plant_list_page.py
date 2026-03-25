@@ -29,11 +29,15 @@ def clean_seed_type(seed_type):
     return s.strip()
 
 
+# def normalize(s):
+#     """Lowercase, strip whitespace, and remove trailing 's' for basic plural matching."""
+#     s = s.lower().strip()
+#     s = re.sub(r's$', '', s)
+#     return s
+
 def normalize(s):
-    """Lowercase, strip whitespace, and remove trailing 's' for basic plural matching."""
-    s = s.lower().strip()
-    s = re.sub(r's$', '', s)
-    return s
+    """Lowercase and strip whitespace for matching."""
+    return s.lower().strip()
 
 
 def clean_category(category):
@@ -118,7 +122,7 @@ def build_page():
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Plant Index – The Gardening Gals</title>
+  <title>Plant List – The Gardening Gals</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -138,12 +142,12 @@ def build_page():
         <ul class="dropdown-menu">
 {nav_dropdown()}        </ul>
       </li>
-      <li><a href="plant_index.html">Index</a></li>
+      <li><a href="plant_list.html">Plant List</a></li>
       <li><a href="varietals.html">Varietals</a></li>
     </ul>
   </nav>
   <main>
-    <h1 class="page-title">Plant Index</h1>
+    <h1 class="page-title">Plant List</h1>
     <div class="list-view">
       <table>
         <thead>
@@ -162,6 +166,6 @@ def build_page():
 
 
 html = build_page()
-with open("plant_index.html", "w", encoding="utf-8") as f:
+with open("plant_list.html", "w", encoding="utf-8") as f:
     f.write(html)
-print("✅ plant_index.html generated successfully!")
+print("✅ plant_list.html generated successfully!")
