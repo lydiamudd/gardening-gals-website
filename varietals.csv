@@ -5,8 +5,8 @@ year,varietal,seed_type
 2026,Sugar Ann,Snap Pea
 2026,Red Ace,(F1) Beet Seed
 2026,Rover,(F1) Radish Seed
-2026,Lunchbox Red,Organic Snack Pepper Seed
-2026,Escamillo,Organic (F1) Corno di Toro Pepper Seed
+2026,Lunchbox Red,Sweet Pepper
+2026,Escamillo,Sweet Pepper
 2026,Calypso,Cilantro/Coriander Seed
 2026,Redbor,(F1) Kale Seed
 2026,Astro,Organic Arugula Seed
@@ -99,7 +99,7 @@ year,varietal,seed_type
 2022,Golden Nugget,Squash
 2022,Luffa,Squash
 2019,Sungold Cherry,Tomato
-2019,Napal,Tomato
+2019,Nepal,Tomato
 2019,Sweetie Cherry,Tomato
 2019,Zebra Green,Tomato
 2019,Speckled Roman (Paster),Tomato

@@ -85,6 +85,7 @@ def build_page():
         </thead>
         <tbody>
 {rows}        </tbody>
+    <p class="intro-note"><em>Note: This list reflects varietals for which we have recorded data and does not represent everything we've grown over the years. We do our best to keep it updated, but some seasons are better documented than others!</em></p>
       </table>
     </div>
   </main>
