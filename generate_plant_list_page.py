@@ -8,8 +8,8 @@ YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 
 MANUAL_MAP = {
     "tomato": "Tomato",
-    "pepper": "Sweet Pepper",
-    "zucchini": "Zucchini Squash",
+    "pepper": "Sweet peppers",
+    "zucchini": "Zucchini",
 }
 
 CATEGORY_FIXES = {
