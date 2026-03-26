@@ -34,7 +34,7 @@ body {
 
 /* ---- HEADER ---- */
 header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_wideß.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
   background-size: cover;
   background-position: center;
   color: var(--cream);
@@ -321,7 +321,7 @@ main {
 
 /* ---- FOOTER ---- */
 footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_wide.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
   background-size: cover;
   background-position: center;
   color: var(--sage-light);
@@ -414,7 +414,7 @@ footer {
   padding: 0.75rem;
 }
 
-ƒ.strawberry-bed {
+.strawberry-bed {
   min-height: 80px;
   border-left: 4px solid var(--terracotta);
 }
@@ -556,7 +556,7 @@ nav ul {
 /* ---- HOMEPAGE FULL BACKGROUND ---- */
 body.home {
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_wide.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_tomatillo_nasturtium.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -629,21 +629,21 @@ body.varietals footer {
    between .garden-section-card blocks on layout pages */
 
 body.plant-list-page {
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_goats.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_borrage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.plant-list-page header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.plant-list-page footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -672,21 +672,21 @@ body.plant-list-page .list-view td:nth-child(3) {
 
 /* ---- NOTES PAGE BACKGROUND ---- */
 body.notes-page {
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_borrage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.notes-page header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.notes-page footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -935,4 +935,64 @@ body.weather-page footer {
 @media (max-width: 600px) {
   .chart-wrap       { height: 240px; }
   .chart-wrap-short { height: 180px; }
+}
+
+/* =========================================
+   ABOUT PAGE
+   Add these rules to the bottom of style.css
+   ========================================= */
+
+/* ---- ABOUT PAGE BACKGROUND ---- */
+/* Full bleed background like body.home — transparent header & footer */
+body.about {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_wide.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.about .about-header {
+  background-image: none;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+body.about .about-footer {
+  background-image: none;
+  background-color: transparent;
+}
+
+/* ---- ABOUT MAIN ---- */
+/* padding-top creates the gap between nav and card where background shows through */
+.about-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1.5rem 4rem;
+  width: 100%;
+}
+
+/* ---- PLACEHOLDER CARD ---- */
+.about-placeholder-card {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  padding: 2.5rem 2rem;
+}
+
+.about-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--bark);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.about-placeholder-text {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-style: italic;
+  font-weight: 300;
 }
