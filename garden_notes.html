@@ -2,320 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Garden Notes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --soil: #2c1a0e;
-      --bark: #5c3d1e;
-      --moss: #4a5e3a;
-      --leaf: #7a9b5f;
-      --sage: #b5c9a1;
-      --parchment: #f5f0e8;
-      --cream: #faf7f2;
-      --rust: #c0622f;
-      --gold: #c9973a;
-      --mist: #e8ede3;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Lato', sans-serif;
-      background-color: var(--cream);
-      color: var(--soil);
-      min-height: 100vh;
-    }
-
-    /* ── Header ── */
-    header {
-      background-color: var(--moss);
-      background-image:
-        radial-gradient(ellipse at 20% 50%, rgba(74,94,58,0.8) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(44,26,14,0.5) 0%, transparent 50%);
-      padding: 56px 40px 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-
-    .header-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .header-eyebrow {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 12px;
-    }
-
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      color: var(--parchment);
-      line-height: 1.15;
-      font-weight: 600;
-    }
-
-    header h1 em {
-      font-style: italic;
-      color: var(--sage);
-    }
-
-    .header-sub {
-      margin-top: 10px;
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(245,240,232,0.65);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── Search bar ── */
-    .search-wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 36px 40px 0;
-    }
-
-    .search-row {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .search-box {
-      position: relative;
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .search-box svg {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--leaf);
-      pointer-events: none;
-    }
-
-    #search {
-      width: 100%;
-      padding: 14px 16px 14px 46px;
-      border: 2px solid var(--mist);
-      border-radius: 6px;
-      font-family: 'Lato', sans-serif;
-      font-size: 15px;
-      font-weight: 300;
-      background: white;
-      color: var(--soil);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    #search:focus {
-      border-color: var(--leaf);
-      box-shadow: 0 0 0 3px rgba(122,155,95,0.15);
-    }
-
-    #search::placeholder { color: #aaa; }
-
-    /* Category filter pills */
-    .filter-row {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px 40px 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .filter-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--bark);
-      margin-right: 4px;
-    }
-
-    .pill {
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      border: 1.5px solid transparent;
-      transition: all 0.15s;
-      background: var(--mist);
-      color: var(--moss);
-      user-select: none;
-    }
-
-    .pill:hover { background: var(--sage); color: var(--soil); }
-    .pill.active { background: var(--moss); color: var(--parchment); border-color: var(--moss); }
-    .pill.all.active { background: var(--soil); }
-
-    /* ── Results summary ── */
-    .results-meta {
-      max-width: 900px;
-      margin: 24px auto 0;
-      padding: 0 40px;
-      font-size: 13px;
-      color: var(--bark);
-      font-style: italic;
-    }
-
-    /* ── Year groups ── */
-    .notes-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 28px 40px 80px;
-    }
-
-    .year-group { margin-bottom: 48px; }
-
-    .year-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--bark);
-      border-bottom: 1px solid var(--sage);
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    .year-count {
-      font-family: 'Lato', sans-serif;
-      font-size: 11px;
-      font-weight: 300;
-      color: var(--leaf);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── Note cards ── */
-    .notes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .note-card {
-      background: white;
-      border-radius: 8px;
-      border: 1px solid var(--mist);
-      padding: 18px 20px 16px;
-      transition: box-shadow 0.2s, transform 0.2s;
-      position: relative;
-    }
-
-    .note-card:hover {
-      box-shadow: 0 4px 18px rgba(44,26,14,0.1);
-      transform: translateY(-2px);
-    }
-
-    .note-card .cat-tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 3px;
-      margin-bottom: 10px;
-    }
-
-    .note-card p {
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--soil);
-    }
-
-    mark {
-      background: rgba(201,151,58,0.28);
-      color: inherit;
-      border-radius: 2px;
-      padding: 0 1px;
-    }
-
-    /* ── Category colours ── */
-    .cat-Pest              { background: #fdecea; color: #b03a2e; }
-    .cat-Soil              { background: #f0ebe3; color: #6d4c28; }
-    .cat-Planting          { background: #eaf2e8; color: #2e6b35; }
-    .cat-Infrastructure    { background: #e8eef5; color: #2b5280; }
-    .cat-Harvest           { background: #fdf3e3; color: #915f1a; }
-    .cat-Water             { background: #e3f1f8; color: #1a6680; }
-    .cat-Plant-choices     { background: #f2e8f5; color: #6a2d82; }
-    .cat-Plant-observations { background: #e8f5ee; color: #1e6647; }
-    .cat-Garden-layout     { background: #f5f0e0; color: #7a5c10; }
-    .cat-default           { background: var(--mist); color: var(--moss); }
-
-    /* ── Empty state ── */
-    .empty {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--bark);
-    }
-
-    .empty svg { margin-bottom: 16px; opacity: 0.4; }
-    .empty h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 8px; }
-    .empty p { font-size: 14px; font-weight: 300; }
-
-    @media (max-width: 600px) {
-      header, .search-wrap, .filter-row, .results-meta, .notes-container { padding-left: 20px; padding-right: 20px; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Garden Notes - The Gardening Gals</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-
-<header>
-  <div class="header-inner">
-    <p class="header-eyebrow">Field Journal</p>
-    <h1>Garden <em>Notes</em></h1>
-    <p class="header-sub">Observations, experiments & lessons from the beds — 2019–2020</p>
-  </div>
-</header>
-
-<div class="search-wrap">
-  <div class="search-row">
-    <div class="search-box">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="search" type="text" placeholder="Search notes… try "pest", "tomato", "carrot"" autocomplete="off" />
+<body class="notes-page">
+  <header>
+    <div class="header-inner">
+      <div class="header-icon"> </div>
+      <h1>The Gardening Gals</h1>
+      <p class="subtitle"><strong>Welcome to our online gardening journal!</strong></p>
     </div>
-  </div>
-</div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Layout</a>
+        <ul class="dropdown-menu">
+          <li><a href="2026.html">2026</a></li>
+          <li><a href="2025.html">2025</a></li>
+          <li><a href="2024.html">2024</a></li>
+          <li><a href="2023.html">2023</a></li>
+          <li><a href="2022.html">2022</a></li>
+          <li><a href="2021.html">2021</a></li>
+          <li><a href="2020.html">2020</a></li>
+          <li><a href="2019.html">2019</a></li>
+        </ul>
+      </li>
+      <li><a href="plant_list.html">Plant List</a></li>
+      <li><a href="garden_notes.html">Garden Notes</a></li>
+      <!-- <li><a href="varietals.html">Varietals</a></li> -->
+    </ul>
+  </nav>
+  <main>
+    <h1 class="page-title">Garden Notes</h1>
 
-<div class="filter-row" id="filterRow">
-  <span class="filter-label">Category:</span>
-  <span class="pill all active" data-cat="all">All</span>
-</div>
+    <div class="garden-section-card" style="margin-bottom: 1.5rem;">
+      <div class="notes-search-row">
+        <div class="notes-search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="notes-search" type="text" placeholder="Search notes... try &ldquo;pest&rdquo;, &ldquo;tomato&rdquo;, &ldquo;carrot&rdquo;" autocomplete="off" />
+        </div>
+      </div>
+      <div class="notes-filter-row" id="notesFilterRow">
+        <span class="notes-filter-label">Category:</span>
+        <span class="notes-pill notes-pill-all active" data-cat="all">All</span>
+      </div>
+      <p class="notes-results-meta" id="notesResultsMeta"></p>
+    </div>
 
-<p class="results-meta" id="resultsMeta"></p>
+    <div id="notesContainer"></div>
 
-<div class="notes-container" id="notesContainer"></div>
+  </main>
+  <footer>
+    <p></p>
+  </footer>
 
 <script>
-const RAW = [
+const NOTES = [
   {year:2019,category:"Plant observations",note:"Tatsoi began to bolt week of May 26th"},
   {year:2019,category:"Infrastructure",note:"Don't mound dirt next to potatoes; find another spot"},
   {year:2019,category:"Garden layout",note:"Potatoes did well in apple beds"},
@@ -351,48 +97,48 @@ const RAW = [
   {year:2019,category:"Plant choices",note:"Speckled Roman Paster tomatoes were great for sauce, grew well, will grow again"},
   {year:2019,category:"Plant choices",note:"Brandywine tomatoes were very juicy, not ideal for sauce, split and molded easily, not outstanding"},
   {year:2019,category:"Plant choices",note:"Sweeties cherry tomatoes were not flavorful, grown in apple terrace beds."},
-  {year:2019,category:"Plant choices",note:"Basil grew well when we pulled out the tomato plant it needs space. Did well from seed. Harvest fully more often. Do not plant with indeterminant tomato."},
+  {year:2019,category:"Plant choices",note:"Basil grew well when we pulled out the tomato plant it needs spce. Did well from seed. Harvest fully more often. Do not plant with indeterminant tomato."},
   {year:2019,category:"Plant choices",note:"Butternut squash produced a small harvest. Didn't have enough time to fully mature. Plant it earlier or not at all."},
   {year:2019,category:"Plant choices",note:"Oregano never came up"},
   {year:2019,category:"Infrastructure",note:"Fencing needed - Eoise ate tomatoes in sunflower bed and plants in the apple terrace"},
   {year:2020,category:"Pest",note:"An animal burrowed into the kale bed, and snuck under the metal siding. We never figured out who it was, but it also did not seem to happen again after we stacked rocks against the metal fence."},
   {year:2020,category:"Pest",note:"Unknown beetle showed up in the raspberries in October"},
-  {year:2020,category:"Pest",note:"New pest on chard – small, black, flying, jumping bug – Annaliese identified it as flea beetle"},
+  {year:2020,category:"Pest",note:"New pest on chard - small, black, flying, jumping bug - Annaliese identified it as flea beetle"},
   {year:2020,category:"Pest",note:"Cucumber beetles decimated the woman melon"},
-  {year:2020,category:"Pest",note:"Cucumber beetles were certainly present, but they didn't noticeably destroy any plant (other than melon). This may be because we planted nasturtium with cucurbits in Bed #1"},
-  {year:2020,category:"Pest",note:"Cucumber beetle deterrent: 1) Cucumber beetles often overwinter near to the previous years' cucurbit crop. So, one way to reduce pest problems the next year is to plant cucurbits as far away from last year's crop as possible. 2) Apply straw mulch around cucurbits to encourage predator spiders and to keep beetles off of soil where they lay eggs. 3) Intercrop with radish, nasturtium, tansy, buckwheat, cowpea or sweet clover"},
+  {year:2020,category:"Pest",note:"Cucumber beetles were certainly present, but they didn\'t noticeably destroy any plant (other than melon). This may be because we planted nasturtium with cucurbits in Bed #1"},
+  {year:2020,category:"Pest",note:"Cucumber beetle deterrent: 1) Cucumber beetles often overwinter near to the previous years\' cucurbit crop. So, one way to reduce pest problems the next year is to plant cucurbits as far away from last year\'s crop as possible. 2) Apply straw mulch around cucurbits to encourage predator spiders and to keep beetles off of soil where they lay eggs. 3) Intercrop with radish, nasturtium, tansy, buckwheat, cowpea or sweet clover"},
   {year:2020,category:"Pest",note:"Regular harvest of greens kept the bugs away"},
   {year:2020,category:"Plant observations",note:"Basil seeds in herb garden did not sprout. Probably not enough sprinkler soakage."},
-  {year:2020,category:"Plant observations",note:"Be patient with basil growth. It's really growing well in late august."},
+  {year:2020,category:"Plant observations",note:"Be patient with basil growth. It\'s really growing well in late august."},
   {year:2020,category:"Plant observations",note:"Basil plants companion planted with tomatoes are shaded out by tomato plants"},
   {year:2020,category:"Planting",note:"Plant basil seeds indoor early and plant basil by seed, but designate a chunk of a bed so that we can grow more basil"},
   {year:2020,category:"Plant observations",note:"Dill seeds did not sprout in tomato bed. Shaded out by tomato plants?"},
-  {year:2020,category:"Infrastructure",note:"Work done to herb garden: removed one big sage and one big savory, and we raised the sprinkler heads by attaching them to rebar posts. This broadened the reach of the water—before the water was mostly getting blocked by the large savory and sage plants."},
-  {year:2020,category:"Planting",note:"One good planting of turnips is enough – no second succession"},
-  {year:2020,category:"Planting",note:"Plant second succession of beets earlier – June?"},
-  {year:2020,category:"Planting",note:"Need to work on successful second planting of carrots – try row cover"},
+  {year:2020,category:"Infrastructure",note:"Work done to herb garden: removed one big sage and one big savory, and we raised the sprinkler heads by attaching them to rebar posts. This broadened the reach of the water--before the water was mostly getting blocked by the large savory and sage plants."},
+  {year:2020,category:"Planting",note:"One good planting of turnips is enough - no second succession"},
+  {year:2020,category:"Planting",note:"Plant second succession of beets earlier - June?"},
+  {year:2020,category:"Planting",note:"Need to work on successful second planting of carrots - try row cover"},
   {year:2020,category:"Planting",note:"Our second succession of carrots failed this year; they may have been eaten by grasshoppers"},
-  {year:2020,category:"Planting",note:"Only plant lettuce in spring—no second succession"},
+  {year:2020,category:"Planting",note:"Only plant lettuce in spring--no second succession"},
   {year:2020,category:"Planting",note:"Second succession struggled this year. Next year try row cover after planting second succession of seeds."},
   {year:2020,category:"Infrastructure",note:"Use basement rather than garage for drying & curing"},
   {year:2020,category:"Infrastructure",note:"Raise terrace sprinklers for potatoes"},
   {year:2020,category:"Infrastructure",note:"Test sprinklers weekly in strawberry zone to check for clogs"},
   {year:2020,category:"Planting",note:"Start tomatoes earlier, and move to bigger pots"},
-  {year:2020,category:"Plant observations",note:"Tomatoes take up a lot of space – companion plants are struggling"},
+  {year:2020,category:"Plant observations",note:"Tomatoes take up a lot of space - companion plants are struggling"},
   {year:2020,category:"Plant observations",note:"Prune tomato plants earlier in the summer to give more energy to existing fruit; this summer we pruned tomatoes on 8/29"},
   {year:2020,category:"Plant choices",note:"Cherokee purple tomatoes do not produce much and are not especially delicious"},
-  {year:2020,category:"Plant choices",note:"Sweetie tomatoes in Apple Terrace volunteered this year—they only became delicious and sweet after the first light frost."},
-  {year:2020,category:"Infrastructure",note:"26 degree temps in forecast, September 8th. We covered 4 tomato plants with brutes and a sheet of plastic. We left the cover on for a few days after the cold weather passed. The tomato plants lived, but the resulting tomatoes were scarred and soft—maybe we "cooked" them under all the plastic?"},
+  {year:2020,category:"Plant choices",note:"Sweetie tomatoes in Apple Terrace volunteered this year--they only became delicious and sweet after the first light frost."},
+  {year:2020,category:"Infrastructure",note:"26 degree temps in forecast, September 8th. We covered 4 tomato plants with brutes and a sheet of plastic. We left the cover on for a few days after the cold weather passed. The tomato plants lived, but the resulting tomatoes were scarred and soft--maybe we \"cooked\" them under all the plastic?"},
   {year:2020,category:"Plant observations",note:"Let fingerlings grow longer"},
   {year:2020,category:"Plant observations",note:"Try growing potatoes with straw method"},
-  {year:2020,category:"Plant observations",note:"Plant peppers closer together—they stayed pretty small and compact"},
+  {year:2020,category:"Plant observations",note:"Plant peppers closer together--they stayed pretty small and compact"},
   {year:2020,category:"Garden layout",note:"A full bed of cucumbers is too much. A half bed is enough!"},
   {year:2020,category:"Plant observations",note:"Overwintered chard was good for spring picking"},
   {year:2020,category:"Garden layout",note:"Winter squash grown in raised beds ripened better than the plants grown in the apple bed. More sun in raised beds."},
   {year:2020,category:"Garden layout",note:"Plant tatsoi further apart"},
-  {year:2020,category:"Garden layout",note:"Parsnips will shade out any smaller plants—do not plant smaller plants between two rows of parsnips"},
+  {year:2020,category:"Garden layout",note:"Parsnips will shade out any smaller plants--do not plant smaller plants between two rows of parsnips"},
   {year:2020,category:"Garden layout",note:"Dahlias need more sun; they were shaded out by tomato plants this year. Maybe plant in quince bed?"},
-  {year:2020,category:"Planting",note:"Give squash longer grow season - plant earlier in spring and use row cover"},
+  {year:2020,category:"Planting",note:"Give squash longer grow season -  plant earlier in spring and use row cover"},
   {year:2020,category:"Plant observations",note:"Chesnock garlic scaped; other garlic also scaped, but I did not take note of which!"},
   {year:2020,category:"Plant observations",note:"Tatsoi started bolting May 23rd, so we fully harvested this first succession"},
   {year:2020,category:"Harvest",note:"When we harvested winter squash, were they flavorful? If not, maybe need to prune vines?"},
@@ -400,110 +146,105 @@ const RAW = [
   {year:2020,category:"Soil",note:"We turned goat poop into all beds and added winter rye as cover crop at the end of the season"}
 ];
 
-// Build category list
-const allCats = [...new Set(RAW.map(n => n.category))].sort();
+const allCats = [...new Set(NOTES.map(n => n.category))].sort();
 
-// Color key: maps category to a CSS class
+const CAT_CLASS = {
+  "Pest":               "ncat-pest",
+  "Soil":               "ncat-soil",
+  "Planting":           "ncat-planting",
+  "Infrastructure":     "ncat-infrastructure",
+  "Harvest":            "ncat-harvest",
+  "Water":              "ncat-water",
+  "Plant choices":      "ncat-plant-choices",
+  "Plant observations": "ncat-plant-obs",
+  "Garden layout":      "ncat-garden-layout",
+};
+
 function catClass(cat) {
-  const map = {
-    "Pest": "cat-Pest",
-    "Soil": "cat-Soil",
-    "Planting": "cat-Planting",
-    "Infrastructure": "cat-Infrastructure",
-    "Harvest": "cat-Harvest",
-    "Water": "cat-Water",
-    "Plant choices": "cat-Plant-choices",
-    "Plant observations": "cat-Plant-observations",
-    "Garden layout": "cat-Garden-layout"
-  };
-  return map[cat] || "cat-default";
+  return CAT_CLASS[cat] || "ncat-default";
 }
 
-// Build filter pills
-const filterRow = document.getElementById('filterRow');
+// Build category filter pills
+const filterRow = document.getElementById("notesFilterRow");
 allCats.forEach(cat => {
-  const pill = document.createElement('span');
-  pill.className = 'pill';
+  const pill = document.createElement("span");
+  pill.className = "notes-pill";
   pill.dataset.cat = cat;
   pill.textContent = cat;
   filterRow.appendChild(pill);
 });
 
-let activeCat = 'all';
-let searchQuery = '';
+let activeCat = "all";
+let searchQuery = "";
 
-filterRow.addEventListener('click', e => {
-  if (!e.target.classList.contains('pill')) return;
+filterRow.addEventListener("click", e => {
+  if (!e.target.classList.contains("notes-pill")) return;
   activeCat = e.target.dataset.cat;
-  document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p.dataset.cat === activeCat));
+  document.querySelectorAll(".notes-pill").forEach(p =>
+    p.classList.toggle("active", p.dataset.cat === activeCat)
+  );
   render();
 });
 
-document.getElementById('search').addEventListener('input', e => {
+document.getElementById("notes-search").addEventListener("input", e => {
   searchQuery = e.target.value.trim().toLowerCase();
   render();
 });
 
+function escHtml(t) {
+  return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
 function highlight(text, query) {
   if (!query) return escHtml(text);
   const escaped = escHtml(text);
-  const re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
-  return escaped.replace(re, '<mark>$1</mark>');
-}
-
-function escHtml(t) {
-  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const re = new RegExp("(" + query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+  return escaped.replace(re, "<mark>$1</mark>");
 }
 
 function render() {
   const q = searchQuery;
   const cat = activeCat;
 
-  const filtered = RAW.filter(n => {
-    const matchCat = cat === 'all' || n.category === cat;
+  const filtered = NOTES.filter(n => {
+    const matchCat = cat === "all" || n.category === cat;
     const matchQ = !q || n.note.toLowerCase().includes(q) || n.category.toLowerCase().includes(q);
     return matchCat && matchQ;
   });
 
-  // Group by year
   const byYear = {};
   filtered.forEach(n => {
     if (!byYear[n.year]) byYear[n.year] = [];
     byYear[n.year].push(n);
   });
 
-  const years = Object.keys(byYear).sort((a,b) => b - a);
-  const container = document.getElementById('notesContainer');
-  const meta = document.getElementById('resultsMeta');
+  const years = Object.keys(byYear).sort((a, b) => b - a);
+  const container = document.getElementById("notesContainer");
+  const meta = document.getElementById("notesResultsMeta");
 
-  meta.textContent = filtered.length === RAW.length
-    ? `${RAW.length} notes total`
-    : `${filtered.length} of ${RAW.length} notes`;
+  meta.textContent = filtered.length === NOTES.length
+    ? NOTES.length + " notes total"
+    : filtered.length + " of " + NOTES.length + " notes";
 
   if (filtered.length === 0) {
-    container.innerHTML = `
-      <div class="empty">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <h3>No notes found</h3>
-        <p>Try a different keyword or clear the search.</p>
-      </div>`;
+    container.innerHTML = `<div class="garden-section-card" style="text-align:center;padding:2.5rem 1rem;">
+      <p style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--bark);">No notes found</p>
+      <p style="color:var(--text-light);font-size:0.9rem;margin-top:0.5rem;">Try a different keyword or clear the search.</p>
+    </div>`;
     return;
   }
 
   container.innerHTML = years.map(year => `
-    <div class="year-group">
-      <div class="year-heading">
-        ${year}
-        <span class="year-count">${byYear[year].length} note${byYear[year].length !== 1 ? 's' : ''}</span>
-      </div>
+    <h2 class="section-heading">${year}</h2>
+    <div class="garden-section-card">
       <div class="notes-grid">
         ${byYear[year].map(n => `
           <div class="note-card">
-            <span class="cat-tag ${catClass(n.category)}">${escHtml(n.category)}</span>
+            <span class="note-cat-tag ${catClass(n.category)}">${escHtml(n.category)}</span>
             <p>${highlight(n.note, q)}</p>
-          </div>`).join('')}
+          </div>`).join("")}
       </div>
-    </div>`).join('');
+    </div>`).join("");
 }
 
 render();
