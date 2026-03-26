@@ -34,7 +34,7 @@ body {
 
 /* ---- HEADER ---- */
 header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_wideß.jpg');
   background-size: cover;
   background-position: center;
   color: var(--cream);
@@ -321,7 +321,7 @@ main {
 
 /* ---- FOOTER ---- */
 footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_wide.jpg');
   background-size: cover;
   background-position: center;
   color: var(--sage-light);
@@ -414,7 +414,7 @@ footer {
   padding: 0.75rem;
 }
 
-.strawberry-bed {
+ƒ.strawberry-bed {
   min-height: 80px;
   border-left: 4px solid var(--terracotta);
 }
@@ -556,7 +556,7 @@ nav ul {
 /* ---- HOMEPAGE FULL BACKGROUND ---- */
 body.home {
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_wide.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -629,21 +629,21 @@ body.varietals footer {
    between .garden-section-card blocks on layout pages */
 
 body.plant-list-page {
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.plant-list-page header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.plant-list-page footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -838,4 +838,101 @@ mark {
 @media (max-width: 600px) {
   .notes-grid { grid-template-columns: 1fr; }
   .notes-search-box { max-width: 100%; }
+}
+
+/* =========================================
+   WEATHER PAGE
+   Add these rules to the bottom of style.css
+   ========================================= */
+
+/* ---- WEATHER PAGE BACKGROUND ---- */
+body.weather-page {
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_calendula_milkweed.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.weather-page header {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_calendula_milkweed.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body.weather-page footer {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_calendula_milkweed.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ---- WEATHER SUBTITLE ---- */
+.weather-subtitle {
+  text-align: center;
+  color: var(--sage-light);
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  margin-top: -0.75rem;
+}
+
+/* ---- CHART CONTAINERS ---- */
+.chart-wrap {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.chart-wrap-short {
+  height: 240px;
+}
+
+.chart-wrap canvas,
+.chart-wrap-short canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ---- CHART SUPPORTING TEXT ---- */
+.chart-note {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.chart-legend {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: center;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+/* ---- FROST TABLE SUBHEADER ---- */
+.th-sub {
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  opacity: 0.85;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .chart-wrap       { height: 240px; }
+  .chart-wrap-short { height: 180px; }
 }
