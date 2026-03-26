@@ -1,113 +1,41 @@
 year,varietal,seed_type
-2026,Toma Verde,Tomatillo
-2026,Sugar Snap,Snap peas
-2026,Oregon Giant,Snow peas
-2026,Sugar Ann,Snap peas
-2026,Red Ace,(F1) Beet Seed
-2026,Rover,(F1) Radish Seed
-2026,Lunchbox Red,Sweet Pepper
-2026,Escamillo,Sweet Pepper
-2026,Calypso,Cilantro Seed
-2026,Redbor,(F1) Kale Seed
-2026,Astro,Organic Arugula Seed
 2026,Sophy,Zucchini
-2026,Amethyst,Bush beans
-2026,Rocdor,Organic Bush beans
-2025,Gummy Bear,Sunflower Seed
-2025,Summer Lovin,(F1) Sunflower Seed
-2025,Forever Happy,Statice Seed
-2025,Monstrosum Tall Mix,Strawflower Seed
-2025,Angel Hair,Spaghetti
-2025,Sweet Jade,Kabocha
-2025,Royal Burgundy,Bush beans
-2025,Kalebration Kale Mix,Kale
-2025,Corinto,Organic (F1) Cucumber Seed
-2025,Sashimi,(F1) Cucumber Seed
-2025,Hakurei,(F1) Turnips Seed
-2025,Miyashige,Radish Seed
-2025,Santo,Organic Cilantro Seed
-2025,Cutting Celery,Organic Herb Seed
+2024,Pantheon,Zucchini
+2019,Costada Romanesco,Zucchini
+2020,Pantheon,Zucchini
+2025,Cactus Flower Blend,Zinnia
+2025,California Giants,Zinnia
+2025,Queen Lime,Zinnia
+2026,Boulder County Fair Grounds,Zinnia
+2024,Cut and Come Again,Zinnia
+2021,Common,Winter Rye
+2023,Hakurei,Turnips
+2020,Hakurei,Turnips
 2025,Speckled Roman Paster,Tomatoes
 2025,San Marzano,Tomatoes
 2025,Galahad,Tomatoes
 2025,Zebra Green,Tomatoes
-2024,Cornito Arancia,Sweet Pepper
-2024,Lunchbox Red,Sweet Pepper
-2024,Jimmy Nardello,Sweet Pepper
-2024,Mokum (Pelleted),Carrots
-2024,Pantheon,Zucchini
-2024,Easter Egg II,Radish Seed
-2024,Hakurei,(F1) Turnips Seed
-2024,Albion,(F1) Parsnips Seed
-2024,Bamako,Bush beans
-2024,Trilogy Mix,Bush beans
-2024,Redbor,(F1) Kale Seed
-2024,Heart of Gold,Organic Chard Seed
-2024,Angel Hair,Spaghetti
-2024,Sweet Jade,Kabocha
-2024,Cornito Arancia,Sweet Pepper
-2024,Lunchbox Red,Sweet Pepper
-2024,Jimmy Nardello,Sweet Pepper
 2024,Speckled Roman Paster,Tomatoes
 2024,San Marzano,Tomatoes
 2024,Galahad,Tomatoes
 2024,Zebra Green,Tomatoes
-2023,Red Ace,Beet
-2023,Romance (Pelleted),Carrots
-2023,Corinto,Cucumber
-2023,Astro,Arugula
-2023,Avalanche,Snow peas
-2023,Cornito Arancia,Sweet Pepper
-2023,Lunchbox Red,Sweet Pepper
-2023,Sweet Jade,Kabocha
-2023,Hakurei,Turnips
-2023,Prospera DMR (CG1),Basil
-2023,Common,Chamomile
-2023,Santo,Organic Cilantro Seed
-2023,Giant of Italy,Organic Parsley Seed
 2023,Speckled Roman Paster,Tomatoes
 2023,Galahad,Tomatoes
 2023,Roma,Tomatoes
 2023,San Marzano,Tomatoes
 2023,Bush,Tomatoes
 2023,Zebra Green,Tomatoes
-2023,Green Buttercrunch,Lettuce
-2023,Red Buttercrunch,Lettuce
-2023,Salad Mix,Lettuce
-2023,Hybrid Sweet,Sweet Pepper
-2023,Jimmy Nardello,Sweet Pepper
-2022,Hybrid Sweet,Sweet Pepper
-2022,Jimmy Nardello,Sweet Pepper
 2022,Speckled Roman Paster,Tomatoes
 2022,Roma,Tomatoes
 2022,San Marzano,Tomatoes
 2022,Bush,Tomatoes
 2022,Zebra Green,Tomatoes
-2022,Green Buttercrunch,Lettuce
-2022,Red Buttercrunch,Lettuce
-2022,Salad Mix,Lettuce
-2022,Angel Hair,Spaghetti
 2019,Sungold Cherry,Tomatoes
 2019,Nepal,Tomatoes
 2019,Sweetie Cherry,Tomatoes
 2019,Zebra Green,Tomatoes
 2019,Speckled Roman Paster,Tomatoes
 2019,Brandywine,Tomatoes
-2019,Dwarf Blue Curled,Kale
-2019,Lemon,Cucumber
-2019,Di Ciccio,Broccoli
-2019,Costada Romanesco,Zucchini
-2019,Inchellum,Garlic
-2019,Kilarney,Garlic
-2019,Chesnock,Garlic
-2019,Buckwheat,Cover crop
-2019,Buttercrunch,Lettuce
-2019,Mixed greens,Lettuce
-2019,Adirondack red,Potatoes
-2020,Armenian,Cucumber
-2020,Lemon,Cucumber
-2020,Pickling,Cucumber
-2020,Woman Melon,Melon
 2020,Sungold Cherry,Tomatoes
 2020,Sweetie Cherry,Tomatoes
 2020,Cherokee Purple,Tomatoes
@@ -115,22 +43,72 @@ year,varietal,seed_type
 2020,Zebra Green,Tomatoes
 2020,Speckled Roman Paster,Tomatoes
 2020,Roma,Tomatoes
+2026,Toma Verde,Tomatillo
+2026,Lunchbox Red,Sweet peppers
+2026,Escamillo,Sweet peppers
+2024,Cornito Arancia,Sweet peppers
+2024,Lunchbox Red,Sweet peppers
+2024,Jimmy Nardello,Sweet peppers
+2024,Cornito Arancia,Sweet peppers
+2024,Lunchbox Red,Sweet peppers
+2024,Jimmy Nardello,Sweet peppers
+2023,Cornito Arancia,Sweet peppers
+2023,Lunchbox Red,Sweet peppers
+2023,Hybrid Sweet,Sweet peppers
+2023,Jimmy Nardello,Sweet peppers
+2022,Hybrid Sweet,Sweet peppers
+2022,Jimmy Nardello,Sweet peppers
+2025,Gummy Bear,Sunflower Seed
+2025,Monstrosum Tall Mix,Strawflower Seed
+2025,Forever Happy,Statice Seed
+2025,Angel Hair,Spaghetti
+2024,Angel Hair,Spaghetti
+2022,Angel Hair,Spaghetti
+2026,Oregon Giant,Snow peas
+2023,Avalanche,Snow peas
+2026,Magic Carpet,Snapdragon
+2026,Sugar Snap,Snap peas
+2026,Sugar Ann,Snap peas
+2026,Black Knight,Scabiosa Pincushion
+2025,Miyashige,Radish Seed
+2024,Easter Egg II,Radish Seed
+2019,Adirondack red,Potatoes
 2020,Adirondack red,Potatoes
 2020,Red Norland,Potatoes
 2020,Pink Fingerling,Potatoes
 2020,Yellow Fingerling,Potatoes
 2020,Purple,Potatoes
 2020,Red prairie,Potatoes
-2020,Pantheon,Zucchini
-2020,Stella Blue,Kabocha
-2020,Nectar,Carrots
-2020,Tri-color,Carrots
-2020,Golden,Beet
+2023,Giant of Italy,Organic Parsley Seed
+2025,Cutting Celery,Organic Herb Seed
+2025,Santo,Organic Cilantro Seed
+2023,Santo,Organic Cilantro Seed
+2024,Heart of Gold,Organic Chard Seed
+2026,Rocdor,Organic Bush beans
+2026,Astro,Organic Arugula Seed
+2025,Corinto,Organic (F1) Cucumber Seed
 2020,Egyptian Walking,Onion
-2020,Hakurei,Turnips
-2020,Dwarf Blue Curled,Kale
-2020,Rainbow,Chard
+2020,Woman Melon,Melon
+2026,Blazing Star,Liatris
+2023,Green Buttercrunch,Lettuce
+2023,Red Buttercrunch,Lettuce
+2023,Salad Mix,Lettuce
+2022,Green Buttercrunch,Lettuce
+2022,Red Buttercrunch,Lettuce
+2022,Salad Mix,Lettuce
+2019,Buttercrunch,Lettuce
+2019,Mixed greens,Lettuce
 2020,Buttercrunch,Lettuce
+2025,Kalebration Kale Mix,Kale
+2019,Dwarf Blue Curled,Kale
+2020,Dwarf Blue Curled,Kale
+2025,Sweet Jade,Kabocha
+2024,Sweet Jade,Kabocha
+2023,Sweet Jade,Kabocha
+2020,Stella Blue,Kabocha
+2019,Inchellum,Garlic
+2019,Kilarney,Garlic
+2019,Chesnock,Garlic
 2020,Chesnock,Garlic
 2020,Inchellum,Garlic
 2020,Kilarney,Garlic
@@ -142,20 +120,6 @@ year,varietal,seed_type
 2020,Amber Queen,Dahlia
 2020,Chilson's Pride,Dahlia
 2020,Crossfield Ebony,Dahlia
-2021,Common,Winter Rye
-2020,German,Chamomile
-2026,Common,Chamomile
-2025,Common,Chamomile
-2021,German,Chamomile
-2022,German,Chamomile
-2023,German,Chamomile
-2024,German,Chamomile
-2025,Cactus Flower Blend,Zinnia
-2025,California Giants,Zinnia
-2025,Queen Lime,Zinnia
-2026,Black Knight,Scabiosa Pincushion
-2026,Magic Carpet,Snapdragon
-2026,Boulder County Fair Grounds,Zinnia
 2025,Procyon,Dahlia
 2025,Vassio Meggos,Dahlia
 2025,Cafe au Lait,Dahlia
@@ -164,5 +128,41 @@ year,varietal,seed_type
 2025,Ivanetti,Dahlia
 2026,Crazy Love,Dahlia
 2026,Lilac Time,Dahlia
-2026,Blazing Star,Liatris
-2024,Cut and Come Again,Zinnia
+2023,Corinto,Cucumber
+2019,Lemon,Cucumber
+2020,Armenian,Cucumber
+2020,Lemon,Cucumber
+2020,Pickling,Cucumber
+2019,Buckwheat,Cover crop
+2026,Calypso,Cilantro Seed
+2020,Rainbow,Chard
+2023,Common,Chamomile
+2020,German,Chamomile
+2026,Common,Chamomile
+2025,Common,Chamomile
+2021,German,Chamomile
+2022,German,Chamomile
+2023,German,Chamomile
+2024,German,Chamomile
+2024,Mokum (Pelleted),Carrots
+2023,Romance (Pelleted),Carrots
+2020,Nectar,Carrots
+2020,Tri-color,Carrots
+2026,Amethyst,Bush beans
+2025,Royal Burgundy,Bush beans
+2024,Bamako,Bush beans
+2024,Trilogy Mix,Bush beans
+2019,Di Ciccio,Broccoli
+2023,Red Ace,Beets
+2020,Golden,Beets
+2023,Prospera DMR (CG1),Basil
+2023,Astro,Arugula
+2025,Hakurei,(F1) Turnips Seed
+2024,Hakurei,(F1) Turnips Seed
+2025,Summer Lovin,(F1) Sunflower Seed
+2026,Rover,(F1) Radish Seed
+2024,Albion,(F1) Parsnips Seed
+2026,Redbor,(F1) Kale Seed
+2024,Redbor,(F1) Kale Seed
+2025,Sashimi,(F1) Cucumber Seed
+2026,Red Ace,(F1) Beets Seed
