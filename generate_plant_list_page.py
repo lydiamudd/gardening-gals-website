@@ -146,6 +146,7 @@ def build_page():
 {nav_dropdown()}        </ul>
       </li>
       <li><a href="plant_list.html">Plant List</a></li>
+      <li><a href="garden_notes.html">Garden Notes</a></li>  
       <!-- <li><a href="varietals.html">Varietals</a></li> -->
     </ul>
   </nav>
