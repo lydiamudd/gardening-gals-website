@@ -8,7 +8,7 @@ year,varietal,seed_type
 2025,Queen Lime,Zinnia
 2026,Boulder County Fair Grounds,Zinnia
 2024,Cut and Come Again,Zinnia
-2021,Common,Winter Rye
+2020,Common,Winter Rye
 2023,Hakurei,Turnips
 2020,Hakurei,Turnips
 2025,Speckled Roman Paster,Tomatoes
@@ -43,6 +43,11 @@ year,varietal,seed_type
 2020,Zebra Green,Tomatoes
 2020,Speckled Roman Paster,Tomatoes
 2020,Roma,Tomatoes
+2021,Kellogg,Tomatoes
+2021,Speckled Roman Paster,Tomatoes
+2021,Roma,Tomatoes
+2021,Zebra Green,Tomatoes
+2021,Bush,Tomatoes
 2026,Toma Verde,Tomatillo
 2026,Lunchbox Red,Sweet peppers
 2026,Escamillo,Sweet peppers

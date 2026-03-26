@@ -34,7 +34,7 @@ body {
 
 /* ---- HEADER ---- */
 header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_wideß.jpg');
   background-size: cover;
   background-position: center;
   color: var(--cream);
@@ -321,7 +321,7 @@ main {
 
 /* ---- FOOTER ---- */
 footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_wide.jpg');
   background-size: cover;
   background-position: center;
   color: var(--sage-light);
@@ -414,7 +414,7 @@ footer {
   padding: 0.75rem;
 }
 
-.strawberry-bed {
+ƒ.strawberry-bed {
   min-height: 80px;
   border-left: 4px solid var(--terracotta);
 }
@@ -556,7 +556,7 @@ nav ul {
 /* ---- HOMEPAGE FULL BACKGROUND ---- */
 body.home {
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_tomatillo_nasturtium.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_wide.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -629,21 +629,21 @@ body.varietals footer {
    between .garden-section-card blocks on layout pages */
 
 body.plant-list-page {
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.plant-list-page header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.plant-list-page footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
