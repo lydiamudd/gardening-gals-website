@@ -672,21 +672,21 @@ body.plant-list-page .list-view td:nth-child(3) {
 
 /* ---- NOTES PAGE BACKGROUND ---- */
 body.notes-page {
-  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.notes-page header {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 body.notes-page footer {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_eloise_borrage.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/garden_goats.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
