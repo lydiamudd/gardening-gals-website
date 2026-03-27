@@ -1,7 +1,7 @@
 import csv
+from utils import YEARS, nav_dropdown, escape_js
 
 NOTES_CSV = "data_notes.csv"
-YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
 
 
 def read_notes():
@@ -15,27 +15,6 @@ def read_notes():
                 "note": row["note"].strip(),
             })
     return notes
-
-
-def nav_dropdown():
-    options = ""
-    for year in sorted(YEARS, reverse=True):
-        options += f'          <li><a href="{year}.html">{year}</a></li>\n'
-    return options
-
-
-def escape_js(s):
-    """Escape a string for safe embedding in a JS double-quoted string."""
-    s = s.replace("\\", "\\\\")
-    s = s.replace('"', '\\"')
-    s = s.replace('\r', '')
-    s = s.replace('\n', ' ')
-    # Replace curly/smart quotes with straight equivalents
-    s = s.replace('\u201c', '\\"').replace('\u201d', '\\"')
-    s = s.replace('\u2018', "\\'").replace('\u2019', "\\'")
-    # Replace em/en dashes with hyphens for safety
-    s = s.replace('\u2014', '--').replace('\u2013', '-')
-    return s
 
 
 def build_js_data(notes):
@@ -75,9 +54,10 @@ def build_page(notes):
         <ul class="dropdown-menu">
 {nav_dropdown()}        </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <li><a href="garden_notes.html">Garden Notes</a></li>
-      <!-- <li><a href="varietals.html">Varietals</a></li> -->
+      <li><a href="view_plant_list.html">Plant List</a></li>
+      <li><a href="view_garden_notes.html">Garden Notes</a></li>
+      <li><a href="about.html">About</a></li>
+      <!-- <li><a href="view_varietals.html">Varietals</a></li> -->
     </ul>
   </nav>
   <main>
@@ -217,9 +197,9 @@ render();
 def main():
     notes = read_notes()
     html = build_page(notes)
-    with open("garden_notes.html", "w", encoding="utf-8") as f:
+    with open("view_garden_notes.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"garden_notes.html generated successfully! ({len(notes)} notes)")
+    print(f"view_garden_notes.html generated successfully! ({len(notes)} notes)")
 
 
 main()

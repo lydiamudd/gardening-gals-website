@@ -1,18 +1,9 @@
 import csv
 import re
 from collections import defaultdict
+from utils import YEARS, nav_dropdown, clean_seed_type
 
-CSV_FILE = "varietals.csv"
-YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
-
-
-def clean_seed_type(seed_type):
-    s = seed_type
-    s = re.sub(r'(?i)^(organic\s+)?(pelleted\s+)?\(f1\)\s+', '', s)
-    s = re.sub(r'(?i)^organic\s+', '', s)
-    s = re.sub(r'(?i)\s+seed$', '', s)
-    s = re.sub(r'(?i)\s+seeds$', '', s)
-    return s.strip()
+CSV_FILE = "data_varietals.csv"
 
 
 def read_varietals():
@@ -35,13 +26,6 @@ def build_table_rows(grouped):
         years_str = ", ".join(sorted(years))
         rows += f"        <tr><td>{seed_type}</td><td>{varietal}</td><td>{years_str}</td></tr>\n"
     return rows
-
-
-def nav_dropdown():
-    options = ""
-    for year in sorted(YEARS, reverse=True):
-        options += f'          <li><a href="{year}.html">{year}</a></li>\n'
-    return options
 
 
 def build_page():
@@ -73,8 +57,9 @@ def build_page():
         <ul class="dropdown-menu">
 {nav_dropdown()}        </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <li><a href="varietals.html">Varietals</a></li>
+      <li><a href="view_plant_list.html">Plant List</a></li>
+      <li><a href="view_garden_notes.html">Garden Notes</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
   </nav>
   <main>
@@ -98,6 +83,6 @@ def build_page():
 
 
 html = build_page()
-with open("varietals.html", "w", encoding="utf-8") as f:
+with open("view_varietals.html", "w", encoding="utf-8") as f:
     f.write(html)
-print("✅ varietals.html generated successfully!")
+print("✅ view_varietals.html generated successfully!")

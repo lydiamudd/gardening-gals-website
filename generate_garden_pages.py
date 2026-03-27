@@ -1,11 +1,10 @@
 import csv
 from collections import defaultdict
+from utils import YEARS, nav_dropdown, load_config
 
-CSV_FILE = "planting_data.csv"
-YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
-
-LOWER_BED_ORDER = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Sunflower"]
-UPPER_BED_ORDER = ["Strawberry", "Kitchen Herbs", "Apple Terrace 1", "Apple Terrace 2", "Apple Terrace 3", "Apple Terrace 4", "Asparagus"]
+CSV_FILE = "data_planting.csv"
+CONFIG = load_config()
+SEASON_ORDER = CONFIG['seasons']
 
 def read_csv(year):
     lower = defaultdict(list)
@@ -25,8 +24,6 @@ def read_csv(year):
                 upper[bed].append((plant, season))
     return lower, upper
 
-
-SEASON_ORDER = ["All season", "Spring", "Summer", "Fall"]
 
 def plant_lines(plants):
     def season_key(item):
@@ -114,13 +111,6 @@ def build_upper_map(upper):
       </div>'''
 
 
-def nav_dropdown():
-    options = ""
-    for year in sorted(YEARS, reverse=True):
-        options += f'          <li><a href="{year}.html">{year}</a></li>\n'
-    return options
-
-
 def build_page(year):
     lower, upper = read_csv(year)
     lower_map = build_lower_map(lower)
@@ -151,9 +141,9 @@ def build_page(year):
         <ul class="dropdown-menu">
 {nav_dropdown()}        </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <li><a href="garden_notes.html">Garden Notes</a></li>
-      <!-- <li><a href="varietals.html">Varietals</a></li> -->
+      <li><a href="view_plant_list.html">Plant List</a></li>
+      <li><a href="view_garden_notes.html">Garden Notes</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
   </nav>
   <main>
@@ -173,7 +163,7 @@ def build_page(year):
 def main():
     for year in YEARS:
         html = build_page(year)
-        filename = f"{year}.html"
+        filename = f"view_{year}.html"
         with open(filename, "w", encoding="utf-8") as f:
             f.write(html)
         print(f"✅ {filename} generated successfully!")

@@ -1,0 +1,67 @@
+# Garden Website Configuration
+# Central configuration for all generation scripts
+
+# Years covered in the garden database
+years: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+
+# Location information
+location:
+  name: "Longmont, CO"
+  latitude: 40.1672
+  longitude: -105.1019
+
+# Garden structure
+garden:
+  lower_beds:
+    - "One"
+    - "Two"
+    - "Three"
+    - "Four"
+    - "Five"
+    - "Six"
+    - "Seven"
+    - "Eight"
+    - "Sunflower"
+
+  upper_beds:
+    - "Strawberry"
+    - "Kitchen Herbs"
+    - "Apple Terrace 1"
+    - "Apple Terrace 2"
+    - "Apple Terrace 3"
+    - "Apple Terrace 4"
+    - "Asparagus"
+
+# Season ordering
+seasons:
+  - "All season"
+  - "Spring"
+  - "Summer"
+  - "Fall"
+
+# Weather/frost thresholds (Fahrenheit)
+frost:
+  light: 36
+  standard: 32
+  hard: 28
+
+# Data files
+data_files:
+  planting: "data_planting.csv"
+  notes: "data_notes.csv"
+  varietals: "data_varietals.csv"
+
+# Output files (view layer)
+output_files:
+  - "view_2019.html"
+  - "view_2020.html"
+  - "view_2021.html"
+  - "view_2022.html"
+  - "view_2023.html"
+  - "view_2024.html"
+  - "view_2025.html"
+  - "view_2026.html"
+  - "view_garden_notes.html"
+  - "view_plant_list.html"
+  - "view_varietals.html"
+  - "view_weather.html"

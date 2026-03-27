@@ -21,19 +21,20 @@
       <li class="dropdown">
         <a href="#">Layout</a>
         <ul class="dropdown-menu">
-          <li><a href="2026.html">2026</a></li>
-          <li><a href="2025.html">2025</a></li>
-          <li><a href="2024.html">2024</a></li>
-          <li><a href="2023.html">2023</a></li>
-          <li><a href="2022.html">2022</a></li>
-          <li><a href="2021.html">2021</a></li>
-          <li><a href="2020.html">2020</a></li>
-          <li><a href="2019.html">2019</a></li>
+          <li><a href="view_2026.html">2026</a></li>
+          <li><a href="view_2025.html">2025</a></li>
+          <li><a href="view_2024.html">2024</a></li>
+          <li><a href="view_2023.html">2023</a></li>
+          <li><a href="view_2022.html">2022</a></li>
+          <li><a href="view_2021.html">2021</a></li>
+          <li><a href="view_2020.html">2020</a></li>
+          <li><a href="view_2019.html">2019</a></li>
         </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <li><a href="garden_notes.html">Garden Notes</a></li>
-      <!-- <li><a href="varietals.html">Varietals</a></li> -->
+      <li><a href="view_plant_list.html">Plant List</a></li>
+      <li><a href="view_garden_notes.html">Garden Notes</a></li>
+      <li><a href="about.html">About</a></li>
+      <!-- <li><a href="view_varietals.html">Varietals</a></li> -->
     </ul>
   </nav>
   <main>
@@ -103,7 +104,7 @@ const NOTES = [
   {year:2019,category:"Infrastructure",note:"Fencing needed - Eoise ate tomatoes in sunflower bed and plants in the apple terrace"},
   {year:2020,category:"Pest",note:"An animal burrowed into the kale bed, and snuck under the metal siding. We never figured out who it was, but it also did not seem to happen again after we stacked rocks against the metal fence."},
   {year:2020,category:"Pest",note:"Unknown beetle showed up in the raspberries in October"},
-  {year:2020,category:"Pest",note:"New pest on chard - small, black, flying, jumping bug - Annaliese identified it as flea beetle"},
+  {year:2020,category:"Pest",note:"New pest on chard – small, black, flying, jumping bug – Annaliese identified it as flea beetle"},
   {year:2020,category:"Pest",note:"Cucumber beetles decimated the woman melon"},
   {year:2020,category:"Pest",note:"Cucumber beetles were certainly present, but they didn\'t noticeably destroy any plant (other than melon). This may be because we planted nasturtium with cucurbits in Bed #1"},
   {year:2020,category:"Pest",note:"Cucumber beetle deterrent: 1) Cucumber beetles often overwinter near to the previous years\' cucurbit crop. So, one way to reduce pest problems the next year is to plant cucurbits as far away from last year\'s crop as possible. 2) Apply straw mulch around cucurbits to encourage predator spiders and to keep beetles off of soil where they lay eggs. 3) Intercrop with radish, nasturtium, tansy, buckwheat, cowpea or sweet clover"},
@@ -113,30 +114,30 @@ const NOTES = [
   {year:2020,category:"Plant observations",note:"Basil plants companion planted with tomatoes are shaded out by tomato plants"},
   {year:2020,category:"Planting",note:"Plant basil seeds indoor early and plant basil by seed, but designate a chunk of a bed so that we can grow more basil"},
   {year:2020,category:"Plant observations",note:"Dill seeds did not sprout in tomato bed. Shaded out by tomato plants?"},
-  {year:2020,category:"Infrastructure",note:"Work done to herb garden: removed one big sage and one big savory, and we raised the sprinkler heads by attaching them to rebar posts. This broadened the reach of the water--before the water was mostly getting blocked by the large savory and sage plants."},
-  {year:2020,category:"Planting",note:"One good planting of turnips is enough - no second succession"},
-  {year:2020,category:"Planting",note:"Plant second succession of beets earlier - June?"},
-  {year:2020,category:"Planting",note:"Need to work on successful second planting of carrots - try row cover"},
+  {year:2020,category:"Infrastructure",note:"Work done to herb garden: removed one big sage and one big savory, and we raised the sprinkler heads by attaching them to rebar posts. This broadened the reach of the water—before the water was mostly getting blocked by the large savory and sage plants."},
+  {year:2020,category:"Planting",note:"One good planting of turnips is enough – no second succession"},
+  {year:2020,category:"Planting",note:"Plant second succession of beets earlier – June?"},
+  {year:2020,category:"Planting",note:"Need to work on successful second planting of carrots – try row cover"},
   {year:2020,category:"Planting",note:"Our second succession of carrots failed this year; they may have been eaten by grasshoppers"},
-  {year:2020,category:"Planting",note:"Only plant lettuce in spring--no second succession"},
+  {year:2020,category:"Planting",note:"Only plant lettuce in spring—no second succession"},
   {year:2020,category:"Planting",note:"Second succession struggled this year. Next year try row cover after planting second succession of seeds."},
   {year:2020,category:"Infrastructure",note:"Use basement rather than garage for drying & curing"},
   {year:2020,category:"Infrastructure",note:"Raise terrace sprinklers for potatoes"},
   {year:2020,category:"Infrastructure",note:"Test sprinklers weekly in strawberry zone to check for clogs"},
   {year:2020,category:"Planting",note:"Start tomatoes earlier, and move to bigger pots"},
-  {year:2020,category:"Plant observations",note:"Tomatoes take up a lot of space - companion plants are struggling"},
+  {year:2020,category:"Plant observations",note:"Tomatoes take up a lot of space – companion plants are struggling"},
   {year:2020,category:"Plant observations",note:"Prune tomato plants earlier in the summer to give more energy to existing fruit; this summer we pruned tomatoes on 8/29"},
   {year:2020,category:"Plant choices",note:"Cherokee purple tomatoes do not produce much and are not especially delicious"},
-  {year:2020,category:"Plant choices",note:"Sweetie tomatoes in Apple Terrace volunteered this year--they only became delicious and sweet after the first light frost."},
-  {year:2020,category:"Infrastructure",note:"26 degree temps in forecast, September 8th. We covered 4 tomato plants with brutes and a sheet of plastic. We left the cover on for a few days after the cold weather passed. The tomato plants lived, but the resulting tomatoes were scarred and soft--maybe we \"cooked\" them under all the plastic?"},
+  {year:2020,category:"Plant choices",note:"Sweetie tomatoes in Apple Terrace volunteered this year—they only became delicious and sweet after the first light frost."},
+  {year:2020,category:"Infrastructure",note:"26 degree temps in forecast, September 8th. We covered 4 tomato plants with brutes and a sheet of plastic. We left the cover on for a few days after the cold weather passed. The tomato plants lived, but the resulting tomatoes were scarred and soft—maybe we \"cooked\" them under all the plastic?"},
   {year:2020,category:"Plant observations",note:"Let fingerlings grow longer"},
   {year:2020,category:"Plant observations",note:"Try growing potatoes with straw method"},
-  {year:2020,category:"Plant observations",note:"Plant peppers closer together--they stayed pretty small and compact"},
+  {year:2020,category:"Plant observations",note:"Plant peppers closer together—they stayed pretty small and compact"},
   {year:2020,category:"Garden layout",note:"A full bed of cucumbers is too much. A half bed is enough!"},
   {year:2020,category:"Plant observations",note:"Overwintered chard was good for spring picking"},
   {year:2020,category:"Garden layout",note:"Winter squash grown in raised beds ripened better than the plants grown in the apple bed. More sun in raised beds."},
   {year:2020,category:"Garden layout",note:"Plant tatsoi further apart"},
-  {year:2020,category:"Garden layout",note:"Parsnips will shade out any smaller plants--do not plant smaller plants between two rows of parsnips"},
+  {year:2020,category:"Garden layout",note:"Parsnips will shade out any smaller plants—do not plant smaller plants between two rows of parsnips"},
   {year:2020,category:"Garden layout",note:"Dahlias need more sun; they were shaded out by tomato plants this year. Maybe plant in quince bed?"},
   {year:2020,category:"Planting",note:"Give squash longer grow season -  plant earlier in spring and use row cover"},
   {year:2020,category:"Plant observations",note:"Chesnock garlic scaped; other garlic also scaped, but I did not take note of which!"},

@@ -1,37 +1,16 @@
 import csv
 import re
 from collections import defaultdict
+from utils import YEARS, nav_dropdown, clean_seed_type, normalize, clean_category
 
-PLANTING_CSV = "planting_data.csv"
-VARIETALS_CSV = "varietals.csv"
-YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+PLANTING_CSV = "data_planting.csv"
+VARIETALS_CSV = "data_varietals.csv"
 
 MANUAL_MAP = {
     "tomato": "Tomato",
     "pepper": "Sweet peppers",
     "zucchini": "Zucchini",
 }
-
-CATEGORY_FIXES = {
-    "covercrop": "Cover crop",
-}
-
-
-def clean_seed_type(seed_type):
-    s = seed_type
-    s = re.sub(r'(?i)^(organic\s+)?(pelleted\s+)?\(f1\)\s+', '', s)
-    s = re.sub(r'(?i)^organic\s+', '', s)
-    s = re.sub(r'(?i)\s+seed$', '', s)
-    s = re.sub(r'(?i)\s+seeds$', '', s)
-    return s.strip()
-
-
-def normalize(s):
-    return s.lower().strip()
-
-
-def clean_category(category):
-    return CATEGORY_FIXES.get(category.lower().strip(), category.strip())
 
 
 def read_planting_data():
@@ -108,13 +87,6 @@ def build_category_sections(plant_names, plant_years, plant_category, type_varie
     return sections
 
 
-def nav_dropdown():
-    options = ""
-    for year in sorted(YEARS, reverse=True):
-        options += f'          <li><a href="{year}.html">{year}</a></li>\n'
-    return options
-
-
 def build_page():
     plant_years, plant_category, plant_names = read_planting_data()
     type_varietals, norm_to_cleaned = read_varietals_data()
@@ -145,8 +117,9 @@ def build_page():
         <ul class="dropdown-menu">
 {nav_dropdown()}        </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <li><a href="garden_notes.html">Garden Notes</a></li>  
+      <li><a href="view_plant_list.html">Plant List</a></li>
+      <li><a href="view_garden_notes.html">Garden Notes</a></li>
+      <li><a href="about.html">About</a></li>  
       <!-- <li><a href="varietals.html">Varietals</a></li> -->
     </ul>
   </nav>
@@ -161,6 +134,6 @@ def build_page():
 
 
 html = build_page()
-with open("plant_list.html", "w", encoding="utf-8") as f:
+with open("view_plant_list.html", "w", encoding="utf-8") as f:
     f.write(html)
 print("Plant list generated successfully!")

@@ -19,6 +19,7 @@ import urllib.request
 import urllib.parse
 from datetime import date, timedelta
 from collections import defaultdict
+from utils import YEARS, nav_dropdown
 
 # ── Configuration ────────────────────────────────────────────────────────────
 
@@ -32,8 +33,6 @@ LONGITUDE = -105.1019
 # USC00055722 = Loveland, CO  |  USC00053005 = Fort Collins
 NOAA_STATION = "USC00055722"
 
-YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
-
 # How many years of history to pull from Open-Meteo
 HISTORY_YEARS = 10
 
@@ -41,14 +40,6 @@ HISTORY_YEARS = 10
 LIGHT_FROST = 36   # 36°F — radiation frost risk
 FROST       = 32   # 32°F — water freezes
 HARD_FROST  = 28   # 28°F — kills most annuals
-
-# ── Nav helper ────────────────────────────────────────────────────────────────
-
-def nav_dropdown():
-    options = ""
-    for year in sorted(YEARS, reverse=True):
-        options += f'          <li><a href="{year}.html">{year}</a></li>\n'
-    return options
 
 # ── Open-Meteo ────────────────────────────────────────────────────────────────
 
@@ -299,10 +290,10 @@ def build_page(curve, monthly, frost_rows, has_noaa):
         <ul class="dropdown-menu">
 {nav_dropdown()}        </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <li><a href="garden_notes.html">Garden Notes</a></li>
-      <li><a href="weather.html">Weather</a></li>
-      <!-- <li><a href="varietals.html">Varietals</a></li> -->
+      <li><a href="view_plant_list.html">Plant List</a></li>
+      <li><a href="view_garden_notes.html">Garden Notes</a></li>
+      <li><a href="about.html">About</a></li>
+      <!-- <li><a href="view_varietals.html">Varietals</a></li> -->
     </ul>
   </nav>
   <main>
@@ -588,9 +579,9 @@ def main():
 
     # 4. Build page
     html = build_page(curve, monthly, frost_rows, has_noaa)
-    with open("weather.html", "w", encoding="utf-8") as f:
+    with open("view_weather.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"weather.html generated successfully!")
+    print(f"view_weather.html generated successfully!")
     print(f"  Frost curve: {len(curve)} data points")
     print(f"  Monthly stats: {len(monthly)} months")
     print(f"  Frost table rows: {len(frost_rows)} years")
