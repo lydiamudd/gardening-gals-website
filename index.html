@@ -132,14 +132,32 @@
       z-index: 1000;
     }
 
+    .image-burst {
+      position: fixed;
+      pointer-events: none;
+      animation: burst 1.2s ease-out forwards;
+      z-index: 1000;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transform-origin: center;
+    }
+
+    .image-burst img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
     @keyframes burst {
       0% {
         opacity: 1;
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0) scale(1) rotate(0deg);
       }
       100% {
         opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(0.5);
+        transform: translate(var(--tx), var(--ty)) scale(0.3) rotate(360deg);
       }
     }
   </style>
@@ -147,30 +165,59 @@
   <script>
     const notebookEmojis = ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
     
+    const gardenImages = [
+      'images/garden_calendula_milkweed.jpg',
+      'images/garden_dill.jpg',
+      'images/garden_eloise_borrage.jpg',
+      'images/garden_eloise_wide.jpg',
+      'images/garden_goats.jpg',
+      'images/garden_tomatillo_nasturtium.jpg'
+    ];
+    
     document.getElementById('notebook-easter-egg').addEventListener('click', function(e) {
-      // Create burst of emojis around click point
+      // Create burst of emojis and images around click point
       const rect = this.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
       
-      for (let i = 0; i < 12; i++) {
-        const emoji = notebookEmojis[Math.floor(Math.random() * notebookEmojis.length)];
-        const angle = (i / 12) * Math.PI * 2;
-        const distance = 100;
+      for (let i = 0; i < 16; i++) {
+        const angle = (i / 16) * Math.PI * 2;
+        const distance = 120;
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
         
-        const emojiEl = document.createElement('div');
-        emojiEl.className = 'emoji-burst';
-        emojiEl.textContent = emoji;
-        emojiEl.style.left = centerX + 'px';
-        emojiEl.style.top = centerY + 'px';
-        emojiEl.style.setProperty('--tx', tx + 'px');
-        emojiEl.style.setProperty('--ty', ty + 'px');
-        
-        document.body.appendChild(emojiEl);
-        
-        setTimeout(() => emojiEl.remove(), 1000);
+        // Alternate between images and emojis
+        if (i % 2 === 0) {
+          // Image burst
+          const randomImage = gardenImages[Math.floor(Math.random() * gardenImages.length)];
+          const imageEl = document.createElement('div');
+          imageEl.className = 'image-burst';
+          imageEl.style.left = centerX + 'px';
+          imageEl.style.top = centerY + 'px';
+          imageEl.style.setProperty('--tx', tx + 'px');
+          imageEl.style.setProperty('--ty', ty + 'px');
+          
+          const img = document.createElement('img');
+          img.src = randomImage;
+          img.alt = 'Garden photo';
+          imageEl.appendChild(img);
+          
+          document.body.appendChild(imageEl);
+          setTimeout(() => imageEl.remove(), 1200);
+        } else {
+          // Emoji burst
+          const emoji = notebookEmojis[Math.floor(Math.random() * notebookEmojis.length)];
+          const emojiEl = document.createElement('div');
+          emojiEl.className = 'emoji-burst';
+          emojiEl.textContent = emoji;
+          emojiEl.style.left = centerX + 'px';
+          emojiEl.style.top = centerY + 'px';
+          emojiEl.style.setProperty('--tx', tx + 'px');
+          emojiEl.style.setProperty('--ty', ty + 'px');
+          
+          document.body.appendChild(emojiEl);
+          setTimeout(() => emojiEl.remove(), 1000);
+        }
       }
     });
   </script>
