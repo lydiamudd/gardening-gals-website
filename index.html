@@ -37,6 +37,10 @@
     </ul>
   </nav>
 
+  <div class="home-notebook-container">
+    <img src="images/notebook_no_bg.png" alt="Gardening notebook" id="notebook-easter-egg" class="home-notebook-image">
+  </div>
+
   <!-- <main class="home-main"> -->
 
     <!-- ✏️ INTRO CARD — edit the text below to personalize your homepage -->
@@ -94,6 +98,81 @@
       font-weight: 700;
       color: #3a5a3a;
     }
+
+    .home-notebook-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
+
+    .home-notebook-image {
+      max-width: 400px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      user-select: none;
+    }
+
+    .home-notebook-image:hover {
+      transform: scale(1.05);
+    }
+
+    .home-notebook-image:active {
+      transform: scale(0.98);
+    }
+
+    .emoji-burst {
+      position: fixed;
+      pointer-events: none;
+      font-size: 2rem;
+      animation: burst 1s ease-out forwards;
+      z-index: 1000;
+    }
+
+    @keyframes burst {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0.5);
+      }
+    }
   </style>
+
+  <script>
+    const notebookEmojis = ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
+    
+    document.getElementById('notebook-easter-egg').addEventListener('click', function(e) {
+      // Create burst of emojis around click point
+      const rect = this.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      for (let i = 0; i < 12; i++) {
+        const emoji = notebookEmojis[Math.floor(Math.random() * notebookEmojis.length)];
+        const angle = (i / 12) * Math.PI * 2;
+        const distance = 100;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        const emojiEl = document.createElement('div');
+        emojiEl.className = 'emoji-burst';
+        emojiEl.textContent = emoji;
+        emojiEl.style.left = centerX + 'px';
+        emojiEl.style.top = centerY + 'px';
+        emojiEl.style.setProperty('--tx', tx + 'px');
+        emojiEl.style.setProperty('--ty', ty + 'px');
+        
+        document.body.appendChild(emojiEl);
+        
+        setTimeout(() => emojiEl.remove(), 1000);
+      }
+    });
+  </script>
 </body>
 </html>
