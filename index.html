@@ -145,21 +145,49 @@
   </style>
 
   <script>
-    const notebookEmojis = ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
+    const emojiZones = {
+      'topLeft': ['🌈', '🌸', '🌺', '🌼', '🌻', '😊', '🧚'],
+      'topRight': ['🥕', '🐝', '🌻', '💛', '👀'],
+      'middleLeft': ['🌹', '💗', '💖', '🦋'],
+      'middleRight': ['🫧', '💧', '🌊', '🌸', '😊', '⭐', '🌰'],
+      'bottomLeft': ['🍄', '🐞'],
+      'bottomRight': ['🦋', '🌽', '🐥', '🦆', '🪿', '🐤']
+    };
+    
+    function determineZone(x, y, rect) {
+      // Normalize coordinates relative to image
+      const relX = x - rect.left;
+      const relY = y - rect.top;
+      
+      const midX = rect.width / 2;
+      const midY = rect.height / 3;
+      
+      // Determine row and column
+      const row = relY < midY ? 'top' : relY < midY * 2 ? 'middle' : 'bottom';
+      const col = relX < midX ? 'Left' : 'Right';
+      
+      return row + col;
+    }
     
     document.getElementById('notebook-easter-egg').addEventListener('click', function(e) {
-      // Create burst of emojis around click point
       const rect = this.getBoundingClientRect();
+      const clickX = e.clientX;
+      const clickY = e.clientY;
+      
+      const zone = determineZone(clickX, clickY, rect);
+      const emojis = emojiZones[zone] || ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
+      
+      // Create burst of emojis from this zone
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
       
-      for (let i = 0; i < 12; i++) {
-        const emoji = notebookEmojis[Math.floor(Math.random() * notebookEmojis.length)];
-        const angle = (i / 12) * Math.PI * 2;
+      for (let i = 0; i < emojis.length; i++) {
+        const angle = (i / emojis.length) * Math.PI * 2;
         const distance = 100;
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
         
+        const emoji = emojis[i];
         const emojiEl = document.createElement('div');
         emojiEl.className = 'emoji-burst';
         emojiEl.textContent = emoji;
