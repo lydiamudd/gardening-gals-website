@@ -40,18 +40,23 @@
   <main>
     <h1 class="page-title">Garden Notes</h1>
 
-    <div class="garden-section-card" style="margin-bottom: 1.5rem;">
-      <div class="notes-search-row">
-        <div class="notes-search-box">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input id="notes-search" type="text" placeholder="Search notes... try &ldquo;pest&rdquo;, &ldquo;tomato&rdquo;, &ldquo;carrot&rdquo;" autocomplete="off" />
+    <div class="notes-header-wrapper">
+      <div class="garden-section-card notes-search-card" style="margin-bottom: 1.5rem;">
+        <div class="notes-search-row">
+          <div class="notes-search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="notes-search" type="text" placeholder="Search notes... try &ldquo;pest&rdquo;, &ldquo;tomato&rdquo;, &ldquo;carrot&rdquo;" autocomplete="off" />
+          </div>
         </div>
+        <div class="notes-filter-row" id="notesFilterRow">
+          <span class="notes-filter-label">Category:</span>
+          <span class="notes-pill notes-pill-all active" data-cat="all">All</span>
+        </div>
+        <p class="notes-results-meta" id="notesResultsMeta"></p>
       </div>
-      <div class="notes-filter-row" id="notesFilterRow">
-        <span class="notes-filter-label">Category:</span>
-        <span class="notes-pill notes-pill-all active" data-cat="all">All</span>
+      <div class="notes-header-image">
+        <img src="images/verona.jpg" alt="Garden Verona view" />
       </div>
-      <p class="notes-results-meta" id="notesResultsMeta"></p>
     </div>
 
     <div id="notesContainer"></div>
