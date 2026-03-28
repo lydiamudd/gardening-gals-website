@@ -142,7 +142,7 @@ def build_page(year):
 {nav_dropdown()}        </ul>
       </li>
       <li><a href="view_plant_list.html">Plant List</a></li>
-      <li><a href="view_garden_notes.html">Garden Notes</a></li>
+      <li><a href="view_garden_notes.html">Notes</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </nav>

@@ -108,8 +108,8 @@ def build_html_template(title, content, nav_dropdown_html):
         <ul class="dropdown-menu">
 {nav_dropdown_html}        </ul>
       </li>
-      <li><a href="plant_list.html">Plant List</a></li>
-      <li><a href="garden_notes.html">Garden Notes</a></li>
+      <li><a href="view_plant_list.html">Plant List</a></li>
+      <li><a href="view_garden_notes.html">Notes</a></li>
     </ul>
   </nav>
   <main>
