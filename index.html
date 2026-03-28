@@ -127,8 +127,8 @@
     .dahlia-burst {
       position: fixed;
       pointer-events: none;
-      width: 60px;
-      height: 60px;
+      width: 120px;
+      height: 120px;
       animation: burst 1s ease-out forwards;
       z-index: 1000;
       transform-origin: center center;
@@ -182,16 +182,20 @@
       return row + col;
     }
     
+    const burstImages = [
+      'images/burst_dahlia.png',
+      'images/burst_dahlia2.png',
+      'images/burst_dahlia3.png',
+      'images/burst_butterfly.png'
+    ];
+    let burstIndex = 0;
+
     document.getElementById('notebook-easter-egg').addEventListener('click', function(e) {
       // Use clientX/clientY for fixed positioning (viewport coordinates)
       const clickX = e.clientX;
       const clickY = e.clientY;
 
-      const rect = this.getBoundingClientRect();
-      const zone = determineZone(clickX, clickY, rect);
-      const emojis = emojiZones[zone] || ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
-
-      // Burst a single dahlia image from the clicked location
+      // Burst a single image from the clicked location, cycling through all burst_ images
       const angle = Math.random() * Math.PI * 2;
       const distance = 180;
       const tx = Math.cos(angle) * distance;
@@ -199,9 +203,10 @@
 
       const dahliaEl = document.createElement('img');
       dahliaEl.className = 'dahlia-burst';
-      dahliaEl.src = 'images/burst_dahlia.png';
-      dahliaEl.style.left = (clickX - 30) + 'px';
-      dahliaEl.style.top = (clickY - 30) + 'px';
+      dahliaEl.src = burstImages[burstIndex % burstImages.length];
+      burstIndex++;
+      dahliaEl.style.left = (clickX - 60) + 'px';
+      dahliaEl.style.top = (clickY - 60) + 'px';
       dahliaEl.style.setProperty('--tx', tx + 'px');
       dahliaEl.style.setProperty('--ty', ty + 'px');
 
