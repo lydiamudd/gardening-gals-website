@@ -127,7 +127,7 @@
     .emoji-burst {
       position: fixed;
       pointer-events: none;
-      font-size: 2rem;
+      font-size: 3.5rem;
       animation: burst 1s ease-out forwards;
       z-index: 1000;
     }
@@ -146,14 +146,14 @@
 
   <script>
     const emojiZones = {
-      'topLeft': ['🌈', '🌸', '🌺', '🌼', '🌻', '😊', '🧚'],
-      'topRight': ['🥕', '🐝', '🌻', '💛', '👀', '🐝', '🥕'],
-      'middleLeft': ['🌹', '💗', '💖', '🦋', '🌹', '💗', '🦋'],
-      'middleRight': ['🫧', '💧', '🌊', '🌸', '😊', '⭐', '🌰'],
+      'topLeft': ['🌈', '🧚', '🌈', '😊', '🌈', '🧚', '🌈'],
+      'topRight': ['🥕', '🐝', '🥕', '💛', '🥕', '🐝', '🥕'],
+      'middleLeft': ['🌹', '💗', '💖', '🦋', '🌹', '💖', '💗'],
+      'middleRight': ['🫧', '💧', '🌊', '🌸', '🫧', '💧', '🌊'],
       'bottomLeft': ['🍄', '🐞', '🍄', '🐞', '🍄', '🐞'],
       'bottomRight': ['🦋', '🌽', '🐥', '🦆', '🪿', '🐤']
     };
-    
+
     function determineZone(x, y, rect) {
       // Normalize coordinates relative to image
       const relX = x - rect.left;
@@ -180,7 +180,7 @@
       // Create burst of emojis from clicked location
       for (let i = 0; i < emojis.length; i++) {
         const angle = (i / emojis.length) * Math.PI * 2;
-        const distance = 100;
+        const distance = 180;
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
         
