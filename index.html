@@ -131,34 +131,22 @@
       z-index: 1000;
     }
 
-    .flower-burst {
+    .emoji-burst {
       position: fixed;
       pointer-events: none;
-      width: 64px;
-      height: 64px;
-      animation: flower-burst-anim 1s ease-out forwards;
+      font-size: 2rem;
+      animation: burst 1s ease-out forwards;
       z-index: 1000;
-      will-change: transform, opacity;
-      user-select: none;
     }
 
-    .flower-burst img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      pointer-events: none;
-      user-select: none;
-      display: block;
-    }
-
-    @keyframes flower-burst-anim {
+    @keyframes burst {
       0% {
         opacity: 1;
         transform: translate(0, 0) scale(1);
       }
       100% {
         opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(2.2);
+        transform: translate(var(--tx), var(--ty)) scale(0.5);
       }
     }
 
@@ -203,27 +191,28 @@
       const rect = this.getBoundingClientRect();
       const clickX = e.clientX;
       const clickY = e.clientY;
-      const numFlowers = 7;
-      for (let i = 0; i < numFlowers; i++) {
-        const angle = (i / numFlowers) * Math.PI * 2;
+      
+      const zone = determineZone(clickX, clickY, rect);
+      const emojis = emojiZones[zone] || ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
+      
+      // Create burst of emojis from clicked location
+      for (let i = 0; i < emojis.length; i++) {
+        const angle = (i / emojis.length) * Math.PI * 2;
         const distance = 180;
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
-
-        const flowerDiv = document.createElement('div');
-        flowerDiv.className = 'flower-burst';
-        flowerDiv.style.left = clickX + 'px';
-        flowerDiv.style.top = clickY + 'px';
-        flowerDiv.style.setProperty('--tx', tx + 'px');
-        flowerDiv.style.setProperty('--ty', ty + 'px');
-
-        const img = document.createElement('img');
-        img.src = 'images/burst_dahlia.png';
-        img.alt = 'Burst Dahlia';
-        flowerDiv.appendChild(img);
-
-        document.body.appendChild(flowerDiv);
-        setTimeout(() => flowerDiv.remove(), 1000);
+        
+        const emoji = emojis[i];
+        const emojiEl = document.createElement('div');
+        emojiEl.className = 'emoji-burst';
+        emojiEl.textContent = emoji;
+        emojiEl.style.left = clickX + 'px';
+        emojiEl.style.top = clickY + 'px';
+        emojiEl.style.setProperty('--tx', tx + 'px');
+        emojiEl.style.setProperty('--ty', ty + 'px');
+        
+        document.body.appendChild(emojiEl);
+        setTimeout(() => emojiEl.remove(), 1000);
       }
     });
   </script>
