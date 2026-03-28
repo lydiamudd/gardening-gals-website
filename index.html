@@ -124,12 +124,14 @@
       transform: scale(0.98);
     }
 
-    .emoji-burst {
+    .dahlia-burst {
       position: fixed;
       pointer-events: none;
-      font-size: 2rem;
+      width: 60px;
+      height: 60px;
       animation: burst 1s ease-out forwards;
       z-index: 1000;
+      transform-origin: center center;
     }
 
     @keyframes burst {
@@ -189,25 +191,22 @@
       const zone = determineZone(clickX, clickY, rect);
       const emojis = emojiZones[zone] || ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
 
-      // Create burst of emojis from clicked location
-      for (let i = 0; i < emojis.length; i++) {
-        const angle = (i / emojis.length) * Math.PI * 2;
-        const distance = 180;
-        const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance;
+      // Burst a single dahlia image from the clicked location
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 180;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
 
-        const emoji = emojis[i];
-        const emojiEl = document.createElement('div');
-        emojiEl.className = 'emoji-burst';
-        emojiEl.textContent = emoji;
-        emojiEl.style.left = clickX + 'px';
-        emojiEl.style.top = clickY + 'px';
-        emojiEl.style.setProperty('--tx', tx + 'px');
-        emojiEl.style.setProperty('--ty', ty + 'px');
+      const dahliaEl = document.createElement('img');
+      dahliaEl.className = 'dahlia-burst';
+      dahliaEl.src = 'images/burst_dahlia.png';
+      dahliaEl.style.left = (clickX - 30) + 'px';
+      dahliaEl.style.top = (clickY - 30) + 'px';
+      dahliaEl.style.setProperty('--tx', tx + 'px');
+      dahliaEl.style.setProperty('--ty', ty + 'px');
 
-        document.body.appendChild(emojiEl);
-        setTimeout(() => emojiEl.remove(), 1000);
-      }
+      document.body.appendChild(dahliaEl);
+      setTimeout(() => dahliaEl.remove(), 1000);
     });
   </script>
 </body>
