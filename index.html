@@ -177,10 +177,7 @@
       const zone = determineZone(clickX, clickY, rect);
       const emojis = emojiZones[zone] || ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
       
-      // Create burst of emojis from this zone
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      
+      // Create burst of emojis from clicked location
       for (let i = 0; i < emojis.length; i++) {
         const angle = (i / emojis.length) * Math.PI * 2;
         const distance = 100;
@@ -191,8 +188,8 @@
         const emojiEl = document.createElement('div');
         emojiEl.className = 'emoji-burst';
         emojiEl.textContent = emoji;
-        emojiEl.style.left = centerX + 'px';
-        emojiEl.style.top = centerY + 'px';
+        emojiEl.style.left = clickX + 'px';
+        emojiEl.style.top = clickY + 'px';
         emojiEl.style.setProperty('--tx', tx + 'px');
         emojiEl.style.setProperty('--ty', ty + 'px');
         
