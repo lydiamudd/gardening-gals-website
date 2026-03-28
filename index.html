@@ -188,20 +188,21 @@
     }
     
     document.getElementById('notebook-easter-egg').addEventListener('click', function(e) {
-      const rect = this.getBoundingClientRect();
+      // Use clientX/clientY for fixed positioning (viewport coordinates)
       const clickX = e.clientX;
       const clickY = e.clientY;
-      
+
+      const rect = this.getBoundingClientRect();
       const zone = determineZone(clickX, clickY, rect);
       const emojis = emojiZones[zone] || ['🌱', '🌿', '🌾', '🌻', '🌹', '🥬', '🍅', '🌸', '🎉', '✨', '💚', '🐝'];
-      
+
       // Create burst of emojis from clicked location
       for (let i = 0; i < emojis.length; i++) {
         const angle = (i / emojis.length) * Math.PI * 2;
         const distance = 180;
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
-        
+
         const emoji = emojis[i];
         const emojiEl = document.createElement('div');
         emojiEl.className = 'emoji-burst';
@@ -210,7 +211,7 @@
         emojiEl.style.top = clickY + 'px';
         emojiEl.style.setProperty('--tx', tx + 'px');
         emojiEl.style.setProperty('--ty', ty + 'px');
-        
+
         document.body.appendChild(emojiEl);
         setTimeout(() => emojiEl.remove(), 1000);
       }
